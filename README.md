@@ -2,6 +2,20 @@
 
 三人团队的校园无障碍沟通产品原型。蓝白手机界面与 NOVA 形象；无第三方运行依赖，无密钥即可使用。
 
+## 真实页面截图
+
+以下为实际运行的 Demo 在 390 × 844 手机视口下的浏览器截图，使用校园示例数据。NOVA 为静态形象，推荐回复为规则演示，截图不代表已实现自动手语生成。
+
+| 现场翻译 | 面对面交流 |
+| --- | --- |
+| <img src="docs/screenshots/mobile-live.png" width="300" alt="现场翻译真实页面" /> | <img src="docs/screenshots/mobile-talk.png" width="300" alt="面对面交流真实页面" /> |
+
+| 事项记忆与继续办理 | 场景资料 |
+| --- | --- |
+| <img src="docs/screenshots/mobile-memory.png" width="300" alt="已确认事项与继续办理真实页面" /> | <img src="docs/screenshots/mobile-knowledge.png" width="300" alt="场景资料真实页面" /> |
+
+截图展示当前屏幕范围，页面下方内容可滚动查看。原图保存在 [docs/screenshots](docs/screenshots)。
+
 ## 启动
 
 需要 Node.js 22+（建议 24）。在此目录执行 `npm start`，打开 http://127.0.0.1:5178 。桌面浏览器也可用，窄屏自动适配手机。也可以双击 `启动演示.cmd`。
@@ -45,6 +59,6 @@ test/core.test.mjs  日期更正、访客边界、版本历史、HTTP 测试
 
 ## 数据与发布
 
-服务默认仅绑定 127.0.0.1。此版本没有用户鉴权，不应直接作为公开服务部署。没有创建或推送 GitHub 仓库。仅本地项目；未加入团队联系方式、论文贡献或公司内部资料。
+服务默认仅绑定 127.0.0.1。此版本没有用户鉴权，不应直接作为公开服务部署。代码仓库：https://github.com/Mortalfrank/Signova 。运行数据仍保存在本地浏览器；未加入团队联系方式、论文贡献或公司内部资料。
 
 NOVA 是基于用户提供形象生成的概念素材，手势未作为具体手语核验。保留 `ASSETS.md` 中的来源说明。
