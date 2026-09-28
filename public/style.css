@@ -2,4 +2,3 @@
 
 /* Preserve the entire signing space: never crop face or hands. */
 .avatar img{object-fit:contain;object-position:center}
-
