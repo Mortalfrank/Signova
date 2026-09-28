@@ -1,0 +1,9 @@
+{
+  "name": "signova-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SIGNOVA mobile-first communication and confirmed task memory demo",
+  "scripts": {"start":"node --env-file-if-exists=.env server.mjs", "test":"node --test", "check":"node --check server.mjs && node --check public/app.js && node --check public/core.js"},
+  "engines": {"node": ">=22"}
+}
