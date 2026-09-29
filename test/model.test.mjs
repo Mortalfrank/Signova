@@ -64,6 +64,41 @@ test('只发送受限的已选记忆和最近上下文，不发送档案或完�
   assert.doesNotMatch(JSON.stringify(data), /private|not-sent|personal|omit/);
 });
 
+test('提示明确区分工作人员发言与办事用户回复，保留具体材料名称和相对期限', async () => {
+  let prompt;
+  const result = await analyzeWithModel({ text: '请在周三前提交实习证明。', knowledge: '实习材料交到学生服务中心2号窗口。' }, {
+    env,
+    fetchImpl: async (_, init) => {
+      prompt = JSON.parse(init.body).messages[0].content;
+      return modelResponse({ ...newTask(), replies: ['我确认一下，实习证明需要在周三前提交，对吗？', '请问是交到学生服务中心2号窗口吗？'], draft: { title: '提交实习证明', action: '提交实习证明', deadline: '周三前', correction: false } });
+    }
+  });
+  assert.match(prompt, /utterance 是现场工作人员/);
+  assert.match(prompt, /replies 是聋人用户准备亲口对该工作人员说/);
+  assert.match(prompt, /“实习证明”不能因为资料写着“实习材料”就改成/);
+  assert.match(prompt, /示例一/);
+  assert.equal(result.draft.action, '提交实习证明');
+  assert.equal(result.draft.deadline, '周三前');
+});
+
+test('拒绝假称已保存或提供提醒功能的候选回复，不把修补后的规则冒充模型输出', async () => {
+  const forbidden = [
+    '好的，已记录需在周三前提交实习证明。',
+    '我已经帮你保存这件事项。',
+    '已提醒你去提交证明。',
+    '请问具体的行动步骤是什么？需要我提醒你去学生服务中心2号窗口吗？',
+    '收到。需要设定一个具体的提醒时间吗？比如周二晚上？',
+    '我会在周三提醒您。',
+    '要不要我帮你安排提醒？'
+  ];
+  for (const reply of forbidden) {
+    await assert.rejects(analyzeWithModel({ text: '请在周三前提交实习证明。' }, options({ ...newTask(), replies: [reply, '请确认截止时间。'] })), error => error.code === 'MODEL_OUTPUT');
+  }
+  const replies = ['请确认截止时间。', '我确认一下，需要在周三前交实习证明，对吗？', '谢谢您的提醒，请问材料交到哪里？'];
+  const result = await analyzeWithModel({ text: '请在周三前提交实习证明。' }, options({ ...newTask(), replies }));
+  assert.deepEqual(result.replies, replies);
+});
+
 test('更新只带变化字段，未提及的 null 与明确清除的空字符串保持区别', async () => {
   const raw = { ...newTask(), draft: { title: null, action: null, deadline: '周五', correction: true }, suggestedTaskId: oldTask.id };
   const result = await analyzeWithModel({ text: '改成周五，其他不变。', memories: [oldTask] }, options(raw));
