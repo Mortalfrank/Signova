@@ -21,7 +21,7 @@ test('更正保持同一事项与旧版本，回复使用最新日期',()=>{
   assert.throws(()=>commitMemory(items,{title:'x',action:'y'},{profile:'other',taskId:'a'}));
 });
 test('HTTP 服务提供页面，拒绝跨站请求和非法输入，不返回密钥',async()=>{
-  const server=createServer();await new Promise(r=>server.listen(0,'127.0.0.1',r));
+  const server=createServer({env:{AI_PROVIDER:'dashscope',AI_API_KEY:'unit-test-key',AI_MODEL:'test-model'},fetchImpl:async()=>new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({replies:['请再说明一下。','请问下一步呢？'],draft:null,suggestedTaskId:null,memoryNote:'测试'})}}]}),{status:200})});await new Promise(r=>server.listen(0,'127.0.0.1',r));
   const url=`http://127.0.0.1:${server.address().port}`;
   try{
     const page=await fetch(url);assert.equal(page.status,200);assert.match(await page.text(),/SIGNOVA/);

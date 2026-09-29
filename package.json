@@ -4,6 +4,16 @@
   "private": true,
   "type": "module",
   "description": "SIGNOVA mobile-first communication and confirmed task memory demo",
-  "scripts": {"start":"node --env-file-if-exists=.env server.mjs", "test":"node --test", "check":"node --check server.mjs && node --check public/app.js && node --check public/core.js"},
-  "engines": {"node": ">=22"}
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "test": "node --test",
+    "check": "node --check server.mjs && node --check model.mjs && node --check asr.mjs && node --check public/app.js && node --check public/asr-client.js && node --check public/pcm-worklet.js && node --check public/model-context.js && node --check public/core.js",
+    "test:connection": "node --env-file-if-exists=.env scripts/check-model.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "ws": "^8.22.0"
+  }
 }
