@@ -7,6 +7,19 @@ SIGNOVA 面向聋人及听障用户，围绕现场信息理解、本人表达和
 
 > 本页介绍产品的最终设计形态，不等同于当前仓库已交付的功能。运行与接入说明见 [开发文档](docs/DEVELOPMENT.md)。
 
+## 产品影片与展示页
+
+以一次校园办理为线索，展示 SIGNOVA 的三段体验：**理解现场 → 本人确认表达 → 记住并接续事项**。影片与展示页沿用 NOVA 品牌形象，结合实际 App 界面与交互逻辑示意。
+
+[![SIGNOVA 产品影片封面](docs/showcase/poster.jpg)](docs/showcase/promo.mp4?raw=true)
+
+点击封面观看 60 秒产品影片（1080p，含配乐与画面字幕）。[单独字幕文件](docs/showcase/captions.zh-CN.vtt) · [素材来源](docs/showcase/LICENSES.md)
+
+- [独立产品展示页](docs/showcase/index.html) · [本地预览与静态部署说明](docs/showcase/README.md)
+- [技术案例：上下文、确认记忆与数字人动作管线](docs/showcase/TECHNICAL_STORY.md)
+
+技术案例对应当前代码中的模型接口、结构化结果校验、用户确认、版本化事项和骨架动作适配，集中说明实现与研究范围。静态展示页可独立部署到个人网站；GitHub 文件页面查看的是网页源码。
+
 ## 产品体验
 
 | 现场翻译 | 面对面交流 |

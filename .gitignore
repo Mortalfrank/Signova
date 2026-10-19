@@ -5,3 +5,13 @@ node_modules/
 test-results/
 *.log
 .DS_Store
+
+# Privately licensed or unreleased sign-motion imports
+data/sign-motion-private/
+
+.venv-motion/
+__pycache__/
+*.pyc
+
+# Local video production assets and renders
+宣传片/

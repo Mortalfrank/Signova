@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fc">
+  <meta name="description" content="SIGNOVA 技术案例：上下文编排、用户确认的事项记忆与 NOVA 数字人动作管线，以及真实验证和工程取舍。">
+  <title>技术案例 — SIGNOVA</title>
+  <link rel="icon" type="image/svg+xml" href="assets/star.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#article">跳到技术案例</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回 SIGNOVA 产品展示"><img src="assets/star.svg" width="30" height="30" alt=""><span>SIGNOVA</span></a>
+    <nav aria-label="主导航"><a href="index.html#experience">产品体验</a><a href="index.html">返回展示页</a><a class="nav-repo" href="https://github.com/Mortalfrank/Signova" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+  </header>
+
+  <main id="article" class="technical-article">
+    <header class="article-header"><p class="eyebrow">SIGNOVA / ENGINEERING CASE STUDY</p><h1>让交流可以继续，<br><span>需要怎样的技术设计？</span></h1><p class="article-lead">从一次校园办理出发，连接上下文、本人表达与可更正的事项记忆。把模型能力放进一个可以核对、确认和继续使用的流程。</p><div class="article-meta"><span>产品与技术案例</span><span>2026.10.19</span><span>约 6 分钟阅读</span></div></header>
+
+    <nav class="article-nav" aria-label="文章目录"><a href="#goal">项目目标</a><a href="#decisions">技术决策</a><a href="#validation">验证记录</a><a href="#scope">实现与研究</a></nav>
+
+    <section id="goal" class="article-section"><p class="eyebrow">01 / THE PROBLEM</p><h2>字幕之后，还有一件事要办。</h2><p>校园窗口的交流经常包含材料、时间、地点和下一步。字幕解决眼前的信息传递，但用户还需要提问、记住要求，并在再次办理时接上此前的沟通。</p><p>SIGNOVA 面向聋人及听障用户，把体验组织为“理解现场、本人表达、跨次接续”。项目的技术重点，是组织现有模型、资料和用户状态，让建议有上下文，让表达与记忆更新有确认步骤。</p><div class="article-flow" aria-label="完整交互流程"><span>保留原话</span><i aria-hidden="true">→</i><span>生成候选</span><i aria-hidden="true">→</i><span>本人确认</span><i aria-hidden="true">→</i><span>事项接续</span></div></section>
+
+    <section id="decisions" class="article-section"><p class="eyebrow">02 / THREE DESIGN DECISIONS</p><h2>三个决定，贯穿整个流程。</h2>
+      <article class="article-decision"><span class="decision-index">A</span><h3>模型提出候选，操作交给用户。</h3><p>后端通过兼容接口调用千问，输入当前发言、最近最多六条会话发言和启用的资料。输出限定为回复、事项草稿、更新目标及确认说明，并校验结构、长度与事项引用。</p><p>用户选择或编辑回复，确认后才对外展示或播放；事项同样需要核对后保存。模型不能因为识别到“改为周五”，就直接覆盖所有记录。指代不明确时先询问，保留用户纠正的入口。</p><p>资料采用有限文本进入上下文，当前没有部署多文档向量检索系统。实际模型结果与规则回退使用不同来源标识，避免把故障后的模板回复当成模型输出。</p><a class="text-link" href="https://github.com/Mortalfrank/Signova/blob/main/model.mjs" target="_blank" rel="noopener noreferrer">模型接口与输出校验 <span aria-hidden="true">↗</span></a></article>
+      <article class="article-decision"><span class="decision-index">B</span><h3>记忆保存最新事实，也保留变化。</h3><p>事项记录名称、待办、截止时间、状态、原话来源和更新时间。周三改为周五时，更新同一事项的当前版本；旧内容进入历史列表，供用户追溯。</p><p>用户允许模型参考记忆后，代码按文本与事项内容的词项重合度、更新时间选择最多六条最新事项。历史版本不进入这次模型上下文，场景资料也不混作个人事实。</p><p>数据保存在当前浏览器。继续办理页的基础回复来自已确认字段组成的规则模板；交流页启用模型和记忆权限后，才会生成带事项上下文的模型建议。这是可更正的状态管理，不是持续训练模型。</p><a class="text-link" href="https://github.com/Mortalfrank/Signova/blob/main/public/model-context.js" target="_blank" rel="noopener noreferrer">事项上下文选择 <span aria-hidden="true">↗</span></a></article>
+      <article class="article-decision" id="motion"><span class="decision-index">C</span><h3>数字人的语言与动作分层处理。</h3><p>语音识别和通用文本模型不能保证手语表达正确。SIGNOVA 将字幕、语言词目匹配、动作来源、骨架适配和播放器分开，避免把角色能动当作语言准确。</p><p>NOVA 使用五十根骨骼，包含双手三十个指节。动作管线处理目标骨架重定向、腕部约束、手掌与指节方向，并检查数值连续性；播放器提供重播、慢放、定位和放大查看。</p><p>中国手语来自公开词目视频的本地关键点估计，ASL 来自公开动捕 FBX。前者仍有深度与遮挡不确定性，两类数据在适配后都需要视觉检查和语言评价。</p><a class="text-link" href="https://github.com/StudioGalt/Sign-Language-Mocap-Archive/tree/eb9046596fffcc6e92ee91d021372961f3d4fcaa" target="_blank" rel="noopener noreferrer">ASL 动作数据来源 <span aria-hidden="true">↗</span></a></article>
+    </section>
+
+    <section id="validation" class="article-section"><p class="eyebrow">03 / EVIDENCE</p><h2>用一次真实更正，验证记忆接续。</h2><p>本次在本机使用虚构校园事项和文字输入，完成真实千问调用：提取提交实习证明的候选事项，经确认保存；输入更正后，模型建议更新原事项为周五。再次确认后，历史仍保留周三前，刷新页面也能读取周五的新状态。</p><div class="article-evidence"><p><strong>输入与结果</strong>真实模型调用、本人确认、同一事项更新、历史保留、刷新后接续。</p><p><strong>验证条件</strong>更正期间一次网络请求失败，重试后成功。剪辑时长不作为接口延迟；此次文字链路不代表麦克风实录、跨设备同步或手语理解度验收。</p></div><p>自动化检查验证结构、状态和语言目录隔离；真实接口验证服务可调用；交互验证确认和更正能走通。手语是否可理解，需要目标用户或专业人士参与评价，不能用工程测试项数替代。</p><a class="text-link" href="verification/APP_FLOW.md" target="_blank" rel="noopener noreferrer">本次交互验证记录 <span aria-hidden="true">↗</span></a></section>
+
+    <section id="scope" class="article-section"><p class="eyebrow">04 / IMPLEMENTATION &amp; RESEARCH</p><h2>每层能力，有各自的验证标准。</h2><p>当前已连接手机交互、可配置的模型与语音接口、回复和事项确认、浏览器内版本化记忆及独立动作管线。模型与语音需要有效配置和主动启用；麦克风还依赖权限与安全连接。</p><p>动作目录提供中国手语“停止”和 ASL 的 Hello、Please、You 四个待核验词汇，按语言分开。当前没有任意句子的连续手语翻译、账户鉴权及跨设备同步。</p><p>下一步集中在场景内完整表达、手部接触与拓扑、面部语言通道，以及手语使用者的可理解性验证。预渲染片段可作为呈现选择，但同样需要语义对应和来源记录。</p></section>
+
+    <aside class="article-resources" aria-labelledby="sources-title"><h2 id="sources-title">继续阅读与源码</h2><div class="article-resource-grid"><a href="https://github.com/Mortalfrank/Signova/blob/main/docs/DEVELOPMENT.md" target="_blank" rel="noopener noreferrer"><strong>开发与运行</strong><span>本地启动、接口与测试方式 ↗</span></a><a href="LICENSES.md" target="_blank" rel="noopener noreferrer"><strong>素材与许可</strong><span>影片配乐、角色与动作来源 ↗</span></a><a href="TECHNICAL_STORY.md" download><strong>Markdown 技术说明</strong><span>下载完整可编辑版本 ↓</span></a><a href="index.html"><strong>返回产品展示</strong><span>观看影片与交互体验 ↗</span></a></div></aside>
+  </main>
+  <footer class="site-footer wrap"><a class="brand" href="index.html"><img src="assets/star.svg" width="24" height="24" alt=""><span>SIGNOVA</span></a><p>产品设计 · 上下文编排 · NOVA 数字人</p><a href="https://github.com/Mortalfrank/Signova" target="_blank" rel="noopener noreferrer">查看 GitHub 项目 ↗</a></footer>
+</body>
+</html>
