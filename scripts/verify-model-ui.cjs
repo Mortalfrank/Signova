@@ -2,9 +2,16 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const assert=require('node:assert/strict');
 (async()=>{
  const {createServer}=await import('../server.mjs');
- const server=createServer({env:{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));
- const browser=await chromium.launch({channel:'chrome',headless:true});
+ const accessKey='model-ui-test-access-key';
+ const address=new URL(process.env.BASE_URL||'http://127.0.0.1:0');
+ if(address.protocol!=='http:')throw new Error('verify-model-ui 自启动服务要求 BASE_URL 使用 http:// 本机地址。');
+ const server=createServer({env:{SIGNOVA_ACCESS_KEY:accessKey}});
+ await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(Number(address.port||80),address.hostname,resolve);});
+ address.port=String(server.address().port);
+ const baseUrl=address.origin;
+ let browser;
  try{
+  browser=await chromium.launch({channel:'chrome',headless:true});
   const page=await browser.newPage({viewport:{width:390,height:844}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
   const calls=[];let fail=false,empty=false,delay=false,release;
   await page.route('**/api/status',r=>r.fulfill({json:{model:{configured:true,model:'mock-qwen'},asr:{configured:false}}}));
@@ -15,7 +22,14 @@ const assert=require('node:assert/strict');
    const correction=data.text.includes('改');
    try{await r.fulfill({json:{mode:'model',replies:['请确认最新截止时间。','请问还需要其他材料吗？'],draft:empty?null:{title:correction?null:'实习申请',action:correction?null:'补交实习证明',deadline:correction?'周五':'周三',source:data.text,correction},suggestedTaskId:correction?(data.memories[0]?.id||null):null,memoryNote:'请核对从原话提取的候选事项。',evidence:''}});}catch{}
   });
-  await page.goto(`http://127.0.0.1:${server.address().port}`);
+  await page.goto(baseUrl);
+  await page.locator('#experience-key').fill(accessKey);
+  const [unlockResponse]=await Promise.all([
+   page.waitForResponse(response=>new URL(response.url()).pathname==='/api/access/unlock'&&response.request().method()==='POST'),
+   page.locator('#unlock-form button[type="submit"]').click()
+  ]);
+  assert.equal(unlockResponse.status(),200,'测试用体验 Key 应通过真实门禁。');
+  await page.waitForURL(url=>url.pathname==='/app');
   await page.locator('.bottom-nav [data-view="knowledge"]').click();
   await page.locator('#model-enabled').check();await page.locator('#memory-enabled').check();
   await page.locator('.bottom-nav [data-view="talk"]').click();
@@ -40,5 +54,5 @@ const assert=require('node:assert/strict');
   await page.getByText('校园演示',{exact:true}).waitFor();await page.locator('.bottom-nav [data-view="tasks"]').click();assert.equal(await page.locator('.task-card').count(),0);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.deepEqual(errors,[]);
   console.log('MODEL UI PASS: consent, mock model requests, explicit save, correction merge, history, safe fallback, empty extraction, profile-switch cancellation.');
- }finally{await browser.close();await new Promise(r=>server.close(r));}
+ }finally{await browser?.close();server.closeAllConnections();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});

@@ -6,6 +6,7 @@ const DEFAULT_URL = 'wss://dashscope.aliyuncs.com/api-ws/v1/inference';
 const MAX_SECONDS = 600;
 const SAMPLE_RATE = 16000;
 const errors = {
+  access: '体验已退出或过期，请重新输入体验 Key。',
   unconfigured: '实时语音尚未配置，请先在电脑上填写百炼密钥并重启服务。',
   busy: '已有一个语音会话正在使用，请先停止后再试。',
   rate: '启动过于频繁，请稍等一分钟再试。',
@@ -59,23 +60,25 @@ function errorCode(code) {
 }
 
 // This bridge intentionally supports one local demo user. It is not public-site authentication.
-export function attachAsr(server, { env = process.env, connect = (url, options) => new WebSocket(url, options) } = {}) {
+export function attachAsr(server, { env = process.env, connect = (url, options) => new WebSocket(url, options), authorize = () => false, expiresAt = () => 0, onRevoke = () => () => {} } = {}) {
   const wss = new WebSocketServer({ noServer: true, maxPayload: 65536, perMessageDeflate: false });
   const sessions = new Set();
   let starts = [];
   const reject = (socket, status) => socket.end(`HTTP/1.1 ${status}\r\nConnection: close\r\nContent-Length: 0\r\n\r\n`);
   function upgrade(req, socket, head) {
     if (req.url !== '/api/asr') return reject(socket, '404 Not Found');
+    if (!authorize(req)) return reject(socket, '401 Unauthorized');
     try {
       const origin = new URL(req.headers.origin || '');
       const protocol = req.socket.encrypted ? 'https:' : 'http:';
       if (origin.protocol !== protocol || origin.host !== req.headers.host || origin.username || origin.password)
         return reject(socket, '403 Forbidden');
     } catch { return reject(socket, '403 Forbidden'); }
-    wss.handleUpgrade(req, socket, head, client => wss.emit('connection', client));
+    wss.handleUpgrade(req, socket, head, client => wss.emit('connection', client, req));
   }
   server.on('upgrade', upgrade);
-  wss.on('connection', client => {
+  wss.on('connection', (client, req) => {
+    client.accessRequest = req;
     let upstream, stage = 'idle', bytes = 0, ended = false, taskId, lastAudio = 0;
     const timers = new Set();
     const timer = (fn, ms) => { const value = setTimeout(fn, ms); value.unref?.(); timers.add(value); return value; };
@@ -107,10 +110,14 @@ export function attachAsr(server, { env = process.env, connect = (url, options) 
       timer(() => fail('timeout'), 10000);
     };
     const initialTimer = timer(() => fail('timeout'), 15000);
+    const expiry = expiresAt(req);
+    if (expiry) timer(() => fail('access'), Math.max(1, expiry - Date.now()));
+    client.revokeAccess = () => fail('access');
     client.on('error', cleanup);
     client.on('close', cleanup);
     client.on('message', (data, isBinary) => {
       if (ended) return;
+      if (!authorize(req)) return fail('access');
       if (isBinary) {
         if (stage !== 'streaming' || !data.length || data.length % 2) return fail('protocol');
         bytes += data.length;
@@ -177,7 +184,11 @@ export function attachAsr(server, { env = process.env, connect = (url, options) 
       });
     });
   });
+  const unsubscribe = onRevoke(() => {
+    for (const client of wss.clients) if (!authorize(client.accessRequest)) client.revokeAccess?.();
+  });
   const close = () => {
+    unsubscribe();
     server.off('upgrade', upgrade);
     for (const client of wss.clients) client.terminate();
     wss.close();

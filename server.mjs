@@ -1,4 +1,6 @@
 import http from 'node:http';
+import { createAccessGate } from './access.mjs';
+import { serveShowcase } from './showcase-static.mjs';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -13,11 +15,14 @@ function json(res, status, data) {
   res.end(JSON.stringify(data));
 }
 export function createServer({env=process.env, fetchImpl=globalThis.fetch}={}) {
+  const access = createAccessGate({ env });
   const server = http.createServer(async (req, res) => {
     res.setHeader('X-Content-Type-Options','nosniff');
     res.setHeader('Referrer-Policy','no-referrer');
     try {
       const url = new URL(req.url, 'http://localhost');
+      if (await access.handle(req, res, decodeURIComponent(url.pathname))) return;
+      if (await serveShowcase(req, res, url)) return;
       if (url.pathname === '/api/status' && req.method === 'GET') {
         const model=getModelStatus(env);
         return json(res,200,{mode:model.configured?'model':'demo',model,asr:getAsrStatus(env),sign:'not-configured'});
@@ -42,18 +47,22 @@ export function createServer({env=process.env, fetchImpl=globalThis.fetch}={}) {
         return json(res,200,{...result,evidence:demoAnalyze(text,knowledge).evidence});
       }
       if(req.method!=='GET'&&req.method!=='HEAD') return json(res,405,{error:'Method not allowed'});
-      const file=path.resolve(root,'.'+decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname));
+      const file=path.resolve(root,'.'+decodeURIComponent(url.pathname==='/'?'/preview.html':['/app','/app/'].includes(url.pathname)?'/index.html':url.pathname));
       if(!file.startsWith(root+path.sep)) return json(res,403,{error:'Forbidden'});
-      const content=await readFile(file);
-      res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});
+      let content=await readFile(file);
+      if (path.extname(file) === '.html' && path.basename(file) !== 'preview.html') {
+        content = Buffer.from(content.toString('utf8').replace('</head>', '<link rel="stylesheet" href="/access-session.css"></head>').replace('</body>', '<script type="module" src="/access-session.js"></script></body>'));
+      }
+      res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':res.getHeader('Cache-Control')||'no-cache'});
       res.end(req.method==='HEAD'?undefined:content);
     } catch(error) {
+      if(error instanceof URIError) return json(res,400,{error:'请求地址格式错误'});
       if(error instanceof ModelError) return json(res,502,{error:error.publicMessage,code:error.code});
       if(error.code==='ENOENT'||error.code==='EISDIR')return json(res,404,{error:'Not found'});
       json(res,500,{error:'处理失败，请重试。服务配置和密钥不会返回客户端。'});
     }
   });
-  attachAsr(server,{env});
+  attachAsr(server,{env,authorize:access.isUnlocked,expiresAt:access.expiresAt,onRevoke:access.onRevoke});
   return server;
 }
 if(process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) {

@@ -1,6 +1,6 @@
 # SIGNOVA · 本地手机端 Demo
 
-三人团队的校园无障碍沟通产品原型。蓝白手机界面与 NOVA 品牌形象；无密钥可体验规则演示；可选接入千问文本模型与阿里云实时语音识别。
+三人团队的校园无障碍沟通产品原型。蓝白手机界面与 NOVA 品牌形象；默认只开放 NOVA IP 与固定示例展示；输入独立体验 Key 后进入功能应用，可选接入千问文本模型与阿里云实时语音识别。
 
 ## 页面截图
 
@@ -20,7 +20,11 @@
 
 需要 Node.js 22+（建议 24）。首次在此目录执行 `npm install`，然后执行 `npm start`，打开 http://127.0.0.1:5178 。桌面浏览器也可用，窄屏自动适配手机。也可以双击 `启动演示.cmd`。
 
-## 3 分钟体验
+## 体验访问
+
+默认首页是公开展示，功能页面与模型/语音接口需要独立的体验 Key。按 [体验访问说明](ACCESS.md) 在本地配置 `SIGNOVA_ACCESS_KEY` 并重启；随后从首页解锁。解锁不等于已配置或开启模型。
+
+## 3 分钟体验（解锁后）
 
 1. 现场翻译 → 切换演示 → 说明材料，显示“周三前提交实习证明”。
 2. 保存待办 → 核对标题、待办、周三 → 确认保存。
@@ -85,7 +89,7 @@ public/assets/      NOVA 和品牌图标
 test/core.test.mjs  日期更正、访客边界、版本历史、HTTP 测试
 ```
 
-执行 `npm test` 和 `npm run check`。可选端到端测试：启动服务，安装或指定 Playwright（环境变量 `PLAYWRIGHT_MODULE` 可指定本地模块路径），再运行 `node scripts/verify-ui.cjs`；需已安装 Chrome。测试使用独立浏览器上下文，不影响当前使用者的数据。模型流程的浏览器测试：指定 Playwright 后执行 `node scripts/verify-model-ui.cjs`，它启动独立临时服务并模拟模型响应。后续优先验证手语展示，再接入正式身份/数据库。不要将长期记忆收益等同于手语动作质量改善。
+执行 `npm test` 和 `npm run check`。可选端到端测试：启动服务，安装或指定 Playwright（环境变量 `PLAYWRIGHT_MODULE` 可指定本地模块路径），再运行 `node --env-file-if-exists=.env scripts/verify-ui.cjs`；需已安装 Chrome。测试使用独立浏览器上下文，不影响当前使用者的数据。模型流程的浏览器测试：指定 Playwright 后执行 `node scripts/verify-model-ui.cjs`，它启动独立临时服务并模拟模型响应。后续优先验证手语展示，再接入正式身份/数据库。不要将长期记忆收益等同于手语动作质量改善。
 
 ## 数据与发布
 

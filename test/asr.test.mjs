@@ -56,7 +56,7 @@ test('ASR bridge enforces origin, starts only on request, streams PCM and final 
     });
   });
   const server = http.createServer();
-  const bridge = attachAsr(server, { env: { ASR_API_KEY: 'test-secret' },
+  const bridge = attachAsr(server, { authorize: () => true, env: { ASR_API_KEY: 'test-secret' },
     connect: (_url, options) => new WebSocket(`ws://127.0.0.1:${upstreamPort}`, options) });
   const port = await localListen(server);
   const origin = `http://127.0.0.1:${port}`;
@@ -105,7 +105,7 @@ test('ASR upstream task failure returns safe classified errors and no provider r
     header: { event: 'task-failed', error_code: 'InvalidApiKey', error_message: 'test-secret upstream-private-detail' }, payload: {},
   }))));
   const server = http.createServer();
-  const bridge = attachAsr(server, { env: { ASR_API_KEY: 'test-secret' },
+  const bridge = attachAsr(server, { authorize: () => true, env: { ASR_API_KEY: 'test-secret' },
     connect: (_url, options) => new WebSocket(`ws://127.0.0.1:${upstreamPort}`, options) });
   const port = await localListen(server);
   t.after(async () => {

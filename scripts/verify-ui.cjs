@@ -1,13 +1,23 @@
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
+const accessKey=(process.env.SIGNOVA_ACCESS_KEY||'').trim();
 (async()=>{
+ if(!accessKey)throw new Error('缺少 SIGNOVA_ACCESS_KEY。请设置环境变量，或在项目目录运行 node --env-file-if-exists=.env scripts/verify-ui.cjs；Key 必须与运行中的服务一致。');
+ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+ const baseUrl=new URL(process.env.BASE_URL||'http://127.0.0.1:5178').origin;
  const browser=await chromium.launch({channel:'chrome',headless:true});
  const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  fs.mkdirSync('test-results',{recursive:true});
  try{
-  await page.goto('http://127.0.0.1:5178');
+  await page.goto(baseUrl);
+  await page.locator('#experience-key').fill(accessKey);
+  const [unlockResponse]=await Promise.all([
+   page.waitForResponse(response=>new URL(response.url()).pathname==='/api/access/unlock'&&response.request().method()==='POST'),
+   page.locator('#unlock-form button[type="submit"]').click()
+  ]);
+  assert.equal(unlockResponse.status(),200,'体验 Key 解锁失败，请检查 SIGNOVA_ACCESS_KEY 是否与运行中的服务一致。');
+  await page.waitForURL(url=>url.pathname==='/app');
   await page.locator('.avatar img').waitFor();
   await page.screenshot({path:'test-results/01-mobile-live.png',fullPage:true});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
@@ -54,4 +64,4 @@ const fs=require('node:fs');
   assert.deepEqual(errors,[]);
   console.log('UI PASS: mobile layout, save/correct memory, history, persistence, reply confirmation, done status, visitor isolation, escaped content; no browser errors.');
  }finally{await browser.close();}
-})().catch(e=>{console.error(e);process.exitCode=1;});
+})().catch(e=>{const message=e instanceof Error?(e.stack||e.message):String(e);console.error(accessKey?message.split(accessKey).join('[REDACTED]'):message);process.exitCode=1;});

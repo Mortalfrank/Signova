@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node --env-file-if-exists=.env server.mjs",
     "test": "node --test",
-    "check": "node --check server.mjs && node --check model.mjs && node --check asr.mjs && node --check public/app.js && node --check public/asr-client.js && node --check public/pcm-worklet.js && node --check public/model-context.js && node --check public/core.js",
+    "check": "node --check server.mjs && node --check model.mjs && node --check asr.mjs && node --check public/app.js && node --check public/asr-client.js && node --check public/pcm-worklet.js && node --check public/model-context.js && node --check public/core.js && node --check access.mjs && node --check showcase-static.mjs && node --check public/preview.js && node --check public/access-session.js && node --check scripts/access-key.mjs",
     "test:connection": "node --env-file-if-exists=.env scripts/check-model.mjs"
   },
   "engines": {

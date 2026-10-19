@@ -21,13 +21,16 @@ test('更正保持同一事项与旧版本，回复使用最新日期',()=>{
   assert.throws(()=>commitMemory(items,{title:'x',action:'y'},{profile:'other',taskId:'a'}));
 });
 test('HTTP 服务提供页面，拒绝跨站请求和非法输入，不返回密钥',async()=>{
-  const server=createServer({env:{AI_PROVIDER:'dashscope',AI_API_KEY:'unit-test-key',AI_MODEL:'test-model'},fetchImpl:async()=>new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({replies:['请再说明一下。','请问下一步呢？'],draft:null,suggestedTaskId:null,memoryNote:'测试'})}}]}),{status:200})});await new Promise(r=>server.listen(0,'127.0.0.1',r));
+  const accessKey='test-access-key-long-enough';
+  const server=createServer({env:{SIGNOVA_ACCESS_KEY:accessKey,AI_PROVIDER:'dashscope',AI_API_KEY:'unit-test-key',AI_MODEL:'test-model'},fetchImpl:async()=>new Response(JSON.stringify({choices:[{message:{content:JSON.stringify({replies:['请再说明一下。','请问下一步呢？'],draft:null,suggestedTaskId:null,memoryNote:'测试'})}}]}),{status:200})});await new Promise(r=>server.listen(0,'127.0.0.1',r));
   const url=`http://127.0.0.1:${server.address().port}`;
   try{
     const page=await fetch(url);assert.equal(page.status,200);assert.match(await page.text(),/SIGNOVA/);
-    const cross=await fetch(url+'/api/analyze',{method:'POST',headers:{Origin:'https://example.com'},body:'{}'});assert.equal(cross.status,403);
-    const invalid=await fetch(url+'/api/analyze',{method:'POST',body:'{}'});assert.equal(invalid.status,400);
-    const valid=await fetch(url+'/api/analyze',{method:'POST',body:JSON.stringify({text:'周五前补交实习证明'})});assert.equal(valid.status,200);assert.ok((await valid.json()).replies.length>=2);
+    const unlocked=await fetch(url+'/api/access/unlock',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({key:accessKey})});assert.equal(unlocked.status,200);
+    const cookie=unlocked.headers.get('set-cookie')?.split(';')[0];assert.ok(cookie);
+    const cross=await fetch(url+'/api/analyze',{method:'POST',headers:{Cookie:cookie,Origin:'https://example.com'},body:'{}'});assert.equal(cross.status,403);
+    const invalid=await fetch(url+'/api/analyze',{method:'POST',headers:{Cookie:cookie},body:'{}'});assert.equal(invalid.status,400);
+    const valid=await fetch(url+'/api/analyze',{method:'POST',headers:{Cookie:cookie},body:JSON.stringify({text:'周五前补交实习证明'})});assert.equal(valid.status,200);assert.ok((await valid.json()).replies.length>=2);
     assert.equal((await fetch(url+'/.env')).status,404);
   }finally{await new Promise(r=>server.close(r));}
 });
