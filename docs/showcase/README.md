@@ -14,6 +14,10 @@ node docs/showcase/serve.mjs
 
 ## 视频文件
 
+新版采用 60 秒品牌叙事：跟随一位听障学生办理校园事务，明确 SIGNOVA 面向聋人及听障用户，依次呈现看见现场信息、自主表达、确认并接续事项，落到平等参与生活。品牌主张为“让沟通可见，让参与平等”，情感句为“每一种表达，都值得被认真回应”。校园故事属于产品情境示意。
+
+声音采用七段 Qwen TTS 中文旁白（`qwen3-tts-flash`，Serena 系统音色），配合背景音乐与逐句同步字幕。声音和 AI 动作画面的制作来源见 [素材许可说明](LICENSES.md)。
+
 播放器由 `media.json` 启用。成片使用以下文件：
 
 ```json
@@ -46,7 +50,7 @@ node docs/showcase/serve.mjs
 
 ## 页面内容与实现证据
 
-- 首页与故事描述 SIGNOVA 的产品方向：理解现场、自主表达、延续交流。
+- 首页与故事描述 SIGNOVA 面向聋人及听障用户的产品方向：理解现场、自主表达、确认并接续事项，让沟通可见、让参与平等。
 - 技术段根据 `model.mjs`、`public/model-context.js`、`public/core.js`、动作组件和 2026-10-19 进展记录撰写。
 - 体验区截图来自 2026-10-19 的实际 App 操作，使用虚构校园资料：`mobile-live.png` 对应文字输入后的真实模型响应，`mobile-talk.png` 对应选择模型候选回复的滚动视图，`mobile-memory.png` 对应日期更正为周五后刷新页面继续办理。截图完整保留实际界面内容；继续办理页仍明确标有规则回复来源，不把它描述为模型生成。截图不代表整句手语翻译。
 - 日期更正卡片是**交互逻辑示意**，页面已明确标注；不是伪造运行截图。
@@ -60,7 +64,8 @@ node docs/showcase/serve.mjs
 - `assets/mobile-*.png` 为本项目真实浏览器截图，当前来源为 `宣传片/SIGNOVA宣传片/工程/public/screens/03-model.png`、`04-reply.png`、`10-continue.png`。无第三方用户资料。
 - 星形图标为本次编写的 SVG 几何图形；排版使用系统字体，无远程字体文件。
 - 配乐为 Mixkit 的 Better Times are Coming，采用与画面同步的成片展示，详见 [素材许可说明](LICENSES.md)。不要单独分发原始配乐、试听或工程独立音轨。
-- 41–44 秒使用 NOVA 的独立 ASL Please 动作，源自 StudioGalt CC0 动捕，经项目现有播放器烘焙后在 Blender 渲染。没有复制真人手语视频，也不把该片段当作中文长句的翻译。
+- 中文旁白由阿里云百炼 Qwen TTS（`qwen3-tts-flash`）的 Serena 系统音色生成；字幕与旁白逐句同步。
+- 新版的 NOVA 动作画面采用原 IP 图片与万相 `wan2.2-animate-move` 专业模式（`wan-pro`）图生动作。驱动参考源自 StudioGalt CC0 的独立 ASL Please 动捕，经本地骨骼重定向并渲染为模型输入视频；该参考视频和参考用 3D 模型外观不出现在最终片中。AI 生成结果用于品牌 IP 动作可视化，不作为中文整句手语翻译质量验收的证据，详见 [素材许可说明](LICENSES.md)。
 
 ## 可访问性与验证
 

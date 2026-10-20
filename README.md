@@ -1,7 +1,7 @@
 # SIGNOVA
 ### AI 无障碍沟通与手语翻译
 
-**看见每一次交流，接上每一件小事。**
+**让沟通可见，让参与平等。**
 
 SIGNOVA 面向聋人及听障用户，围绕现场信息理解、本人表达和跨次事项接续，设计手机端 AI 无障碍沟通体验。通过语音识别、场景知识、手语与字幕、辅助回复及长期事项记忆，让一次交流能够延续到下一次办理。
 
@@ -9,11 +9,13 @@ SIGNOVA 面向聋人及听障用户，围绕现场信息理解、本人表达和
 
 ## 产品影片与展示页
 
-以一次校园办理为线索，展示 SIGNOVA 的三段体验：**理解现场 → 本人确认表达 → 记住并接续事项**。影片与展示页沿用 NOVA 品牌形象，结合实际 App 界面与交互逻辑示意。
+跟随一位听障学生办理校园事务，展现 SIGNOVA 面向聋人及听障用户的产品愿景：**看见现场信息 → 自主表达 → 确认并接续事项 → 平等参与生活**。影片与展示页沿用 NOVA 品牌形象，结合实际 App 界面与交互逻辑示意。
+
+每一种表达，都值得被认真回应。
 
 [![SIGNOVA 产品影片封面](docs/showcase/poster.jpg)](docs/showcase/promo.mp4?raw=true)
 
-点击封面观看 60 秒产品影片（1080p，含配乐与画面字幕）。[单独字幕文件](docs/showcase/captions.zh-CN.vtt) · [素材来源](docs/showcase/LICENSES.md)
+点击封面观看 60 秒品牌片（1080p，含中文旁白、配乐与字幕）。[单独字幕文件](docs/showcase/captions.zh-CN.vtt) · [NOVA IP 动作短片](docs/showcase/assets/nova-ip-sign.mp4?raw=true) · [制作与素材来源](docs/showcase/LICENSES.md)
 
 - [独立产品展示页](docs/showcase/index.html) · [本地预览与静态部署说明](docs/showcase/README.md)
 - [技术案例：上下文、确认记忆与数字人动作管线](docs/showcase/TECHNICAL_STORY.md)

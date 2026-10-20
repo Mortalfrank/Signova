@@ -1,0 +1,60 @@
+{
+  "edition": "SIGNOVA brand film v2",
+  "date": "2026-10-20",
+  "audience": "聋人及听障用户",
+  "brand": "让沟通可见，让参与平等。",
+  "message": "每一种表达，都值得被认真回应。",
+  "durationSeconds": 60,
+  "masterResolution": [
+    3840,
+    2160
+  ],
+  "webResolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "ipVideo": {
+    "file": "assets/nova-ip-sign.mp4",
+    "model": "wan2.2-animate-move",
+    "mode": "wan-pro",
+    "durationSeconds": 3,
+    "inFilm": [
+      20,
+      23
+    ],
+    "sha256": "96bc70a1f386093f8c4f4e64e21aa670477222c0817cd4fc77a93ad73d74f1fe",
+    "source": "原NOVA IP图片驱动的AI生成影像",
+    "scope": "独立品牌动作可视化"
+  },
+  "voice": {
+    "provider": "DashScope",
+    "model": "qwen3-tts-flash",
+    "voice": "Serena",
+    "lines": 7,
+    "finalMixAsrVerified": true
+  },
+  "subtitles": {
+    "file": "captions.zh-CN.vtt",
+    "cues": 19
+  },
+  "previous3DModelVisible": false,
+  "notes": "生成动作不作为中文整句手语准确性验收；素材许可与来源见LICENSES.md。",
+  "webVideoSha256": "6a49fe674dc9e0e6ac091f6d0478763742ed17367f1f3178f013721211bd49d3",
+  "webVideoBytes": 5700085,
+  "masterSha256": "02366417b9a2af536ff5fae6c9b859b77179c4b5e0429ff73cc78a6aabf2609e",
+  "checks": {
+    "videoCodec": "H264",
+    "audioCodec": "AAC",
+    "integratedLufs": -13.9,
+    "truePeakDbfs": -2.4,
+    "renderErrors": 0,
+    "minimumVoiceOverMusicDb": 10.3,
+    "finalMixAsrLinesMatched": 7,
+    "subtitleCues": 19,
+    "ipInFilmSeconds": [
+      20,
+      23
+    ]
+  }
+}

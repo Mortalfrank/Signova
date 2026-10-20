@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f8fc">
-  <meta name="description" content="SIGNOVA：有上下文的无障碍沟通助手。探索现场理解、自主表达与用户确认的事项记忆，以及 NOVA 数字人动作管线。">
-  <title>SIGNOVA — 让每一次交流，都能接着继续</title>
+  <meta name="description" content="SIGNOVA 面向聋人及听障用户，连接现场理解、自主表达与已确认事项的接续。让沟通可见，让参与平等。">
+  <title>SIGNOVA — 让沟通可见，让参与平等</title>
   <link rel="icon" type="image/svg+xml" href="assets/star.svg">
   <link rel="stylesheet" href="styles.css">
   <script src="showcase.js" defer></script>
@@ -25,9 +25,9 @@
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> ACCESSIBLE COMMUNICATION, WITH CONTEXT</p>
-        <h1 id="hero-title">让每一次交流，<br><span>都能接着继续。</span></h1>
-        <p class="hero-intro">从看懂眼前的信息，到清楚地表达自己，<br class="desktop-break">再到下一次见面。SIGNOVA 连接每一步。</p>
-        <div class="hero-actions"><a class="button primary" href="#film"><span aria-hidden="true">▷</span> 观看产品短片</a><a class="text-link" href="#architecture">了解背后的设计 <span aria-hidden="true">↗</span></a></div>
+        <h1 id="hero-title">让沟通可见，<br><span>让参与平等。</span></h1>
+        <p class="hero-intro">SIGNOVA 面向聋人及听障用户，<br class="desktop-break">连接现场理解、自主表达与已确认事项的接续。</p>
+        <div class="hero-actions"><a class="button primary" href="#film"><span aria-hidden="true">▷</span> 观看品牌短片</a><a class="text-link" href="#architecture">了解背后的设计 <span aria-hidden="true">↗</span></a></div>
         <div class="hero-steps" aria-label="产品体验三个阶段"><span><b>01</b> 理解现场</span><span><b>02</b> 自主表达</span><span><b>03</b> 延续交流</span></div>
       </div>
       <div class="hero-art">
@@ -39,12 +39,12 @@
     </section>
 
     <section class="film-section wrap" id="film" aria-labelledby="film-title">
-      <div class="section-heading"><div><p class="eyebrow">THE PRODUCT STORY</p><h2 id="film-title">看见每一次交流。</h2></div><p>产品概念与交互展示</p></div>
+      <div class="section-heading"><div><p class="eyebrow">THE BRAND STORY</p><h2 id="film-title">看见每一次交流。</h2></div><p>60 秒品牌片 · 中文旁白与字幕</p></div>
       <div class="film-shell" id="film-shell">
-        <div class="film-poster" id="film-poster"><div><p class="eyebrow">SIGNOVA</p><p class="poster-title">Understand the moment.<br><span>Continue the conversation.</span></p><p class="poster-caption">从现场理解，到下一次见面。</p></div><img src="assets/nova.png" width="1122" height="1402" alt="NOVA 品牌形象"></div>
-        <video id="promo-video" controls playsinline preload="metadata" aria-label="SIGNOVA 产品概念与交互展示" hidden>您的浏览器不支持视频播放，请使用下方文字版了解产品。</video>
+        <div class="film-poster" id="film-poster"><div><p class="eyebrow">SIGNOVA</p><p class="poster-title">让沟通可见。<br><span>让参与平等。</span></p><p class="poster-caption">每一种表达，都值得被认真回应。</p></div><img src="assets/nova.png" width="1122" height="1402" alt="NOVA 品牌形象"></div>
+        <video id="promo-video" controls playsinline preload="metadata" aria-label="SIGNOVA 品牌片：让沟通可见，让参与平等" hidden>您的浏览器不支持视频播放，请使用下方文字版了解产品。</video>
       </div>
-      <div class="film-meta"><p>围绕校园办理的一次完整交流，理解 SIGNOVA 的产品设计。</p><a href="#story-text">阅读文字版 <span aria-hidden="true">↓</span></a></div>
+      <div class="film-meta"><p>跟随一位听障学生办理校园事务：看见现场信息，自主表达，再从已确认的事项继续。</p><a href="#story-text">阅读文字版 <span aria-hidden="true">↓</span></a></div>
     </section>
 
     <section class="experience wrap" id="experience" aria-labelledby="experience-title">
@@ -95,9 +95,9 @@
       <details class="implementation-details"><summary><span>实现说明与研究方向</span><span class="details-plus" aria-hidden="true">+</span></summary><div class="implementation-body"><p>本页聚焦产品设计与可运行的交互。代码实现范围如下，视频中的品牌画面与交互示意不作为算法准确率证明。</p><dl><div><dt>字幕与模型</dt><dd>可配置云端语音识别及文本模型，用户启用后调用；默认保留规则演示与文字输入。实际录音需要浏览器权限及安全连接。</dd></div><div><dt>事项记忆</dt><dd>保存在当前浏览器，支持确认、更新、删除与历史查看；当前未提供账号鉴权及跨设备同步。经授权的模型上下文只读取最新事项。</dd></div><div><dt>数字人动作</dt><dd>中国手语“停止”与 ASL 的 Hello、Please、You 共四个待核验词汇预览；并非任意句子的连续手语翻译。数值检查不等于手语理解度验证。</dd></div><div><dt>下一步研究</dt><dd>场景内完整表达、非手部语言通道、动作接触与手部表现，以及由手语使用者参与的可理解性验证。</dd></div></dl><a class="text-link" href="https://github.com/Mortalfrank/Signova" target="_blank" rel="noopener noreferrer">在仓库中查看实现与验证记录 <span aria-hidden="true">↗</span></a></div></details>
     </section>
 
-    <section class="story-text wrap" id="story-text" aria-labelledby="story-title"><details><summary><span id="story-title">产品故事 · 文字版</span><span aria-hidden="true">+</span></summary><div><p>一次校园办理，从一条通知开始。用户在手机上查看工作人员的原话，选择或编辑自己的回复，并在确认后向对方表达。</p><p>需要补交的材料和截止时间被整理为待确认事项。用户核对后保存；当工作人员更正日期时，更新同一事项，保留原话来源和历史记录。下一次见面，用户重新打开事项，从已经确认的信息继续交流。</p><p>SIGNOVA 的产品愿景是把现场理解、自主表达和跨次延续连接起来。NOVA 承担统一的数字人形象与独立词汇动作展示。</p></div></details></section>
+    <section class="story-text wrap" id="story-text" aria-labelledby="story-title"><details><summary><span id="story-title">品牌故事 · 文字版</span><span aria-hidden="true">+</span></summary><div><p>一位听障学生来到校园办事窗口。面对需要核对的信息，SIGNOVA 的产品愿景是让聋人及听障用户看见现场内容，按自己的节奏理解与确认。</p><p>想问的问题，由本人选择、修改或自由输入，确认后再向对方表达。需要补交的材料与截止时间，经本人核对后保存；信息变化时更新同一事项，让下一次办理接得上。</p><p>从看见信息，到自主表达，再到平等参与日常生活，每一种表达，都值得被认真回应。SIGNOVA：让沟通可见，让参与平等。片中的校园故事为产品情境示意；NOVA 的 AI 生成动作用于品牌可视化，不作为中文整句手语翻译的质量证明。</p></div></details></section>
 
-    <section class="closing wrap" aria-labelledby="closing-title"><img src="assets/star.svg" width="42" height="42" alt=""><p class="eyebrow">UNDERSTAND. EXPRESS. CONTINUE.</p><h2 id="closing-title">沟通的价值，<br>在于可以继续。</h2><a class="button primary" href="https://github.com/Mortalfrank/Signova" target="_blank" rel="noopener noreferrer">探索 GitHub 项目 <span aria-hidden="true">↗</span></a></section>
+    <section class="closing wrap" aria-labelledby="closing-title"><img src="assets/star.svg" width="42" height="42" alt=""><p class="eyebrow">UNDERSTAND. EXPRESS. PARTICIPATE.</p><h2 id="closing-title">每一种表达，<br>都值得被认真回应。</h2><a class="button primary" href="https://github.com/Mortalfrank/Signova" target="_blank" rel="noopener noreferrer">探索 GitHub 项目 <span aria-hidden="true">↗</span></a></section>
   </main>
   <footer class="site-footer wrap"><a class="brand" href="#"><img src="assets/star.svg" width="24" height="24" alt=""><span>SIGNOVA</span></a><p>产品设计 · 上下文编排 · NOVA 数字人</p><a href="README.md">展示页与素材说明</a></footer>
 </body>
