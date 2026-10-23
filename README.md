@@ -34,14 +34,14 @@ SIGNOVA 面向聋人及听障用户，围绕现场信息理解、本人表达和
 
 每一种表达，都值得被认真回应。
 
-[![SIGNOVA 产品影片封面](docs/showcase/poster.jpg)](docs/showcase/promo.mp4?raw=true)
+[![SIGNOVA 产品影片封面：点击在线播放](docs/showcase/poster.jpg)](https://mortalfrank.github.io/Signova/#film)
 
-点击封面观看 60 秒品牌片（1080p，含中文旁白、配乐与字幕）。[单独字幕文件](docs/showcase/captions.zh-CN.vtt) · [NOVA IP 动作短片](docs/showcase/assets/nova-ip-sign.mp4?raw=true) · [制作与素材来源](docs/showcase/LICENSES.md)
+**[▶ 在线播放 60 秒品牌片](https://mortalfrank.github.io/Signova/#film)**（1080p，含中文旁白、配乐与字幕）。点击封面即可在网页播放器观看，支持手机和电脑，无需下载文件或启动项目。[单独字幕文件](docs/showcase/captions.zh-CN.vtt) · [下载 MP4](docs/showcase/promo.mp4?raw=true) · [制作与素材来源](docs/showcase/LICENSES.md)
 
-- [独立产品展示页](docs/showcase/index.html) · [本地预览与静态部署说明](docs/showcase/README.md)
+- [独立产品展示页](https://mortalfrank.github.io/Signova/) · [本地预览与静态部署说明](docs/showcase/README.md)
 - [技术案例：上下文、确认记忆与数字人动作管线](docs/showcase/TECHNICAL_STORY.md)
 
-技术案例对应当前代码中的模型接口、结构化结果校验、用户确认、版本化事项和骨架动作适配，集中说明实现与研究范围。静态展示页可独立部署到个人网站；GitHub 文件页面查看的是网页源码。
+技术案例对应当前代码中的模型接口、结构化结果校验、用户确认、版本化事项和骨架动作适配，集中说明实现与研究范围。产品展示页通过 GitHub Pages 提供在线访问，也可独立部署到个人网站。
 
 ## 默认入口
 

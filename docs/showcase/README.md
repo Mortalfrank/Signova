@@ -2,6 +2,8 @@
 
 独立静态页面，可用于个人网站、GitHub Pages 或项目演示。无需构建，无外部 CDN、字体、追踪脚本或数据上传。本目录与主 App 分离，不改变 App 的功能、模型配置或本地记忆。
 
+**[在线查看产品展示页](https://mortalfrank.github.io/Signova/) · [在线播放品牌片](https://mortalfrank.github.io/Signova/#film)**。访客点击播放按钮即可观看，无需下载项目或视频文件。
+
 ## 本地预览
 
 在仓库根目录运行自带的静态服务器（支持视频分段读取和拖动进度）：
@@ -34,7 +36,9 @@ node docs/showcase/serve.mjs
 
 将本目录的**全部内容**作为静态站点根目录上传到已有网站托管服务；所有内部资源都使用相对地址，支持部署到子路径。部署本页不等于部署 SIGNOVA App、模型后端或账号服务。
 
-如仓库采用 GitHub Pages：可选用工作流上传此目录为 Pages artifact。不要直接将仓库根目录或含 `.env`、私有研究数据的目录暴露为站点。GitHub Pages 的启用、仓库发布与域名变更需由项目所有者决定，本次仅提供页面文件。
+本仓库使用 GitHub Actions 发布到 `https://mortalfrank.github.io/Signova/`。工作流为 [showcase-pages.yml](../../.github/workflows/showcase-pages.yml)：当 `main` 分支的展示页目录或工作流更新时，先执行静态校验，再将本目录作为站点根目录发布；也支持在 Actions 页面手动运行。Pages 的构建来源设为 GitHub Actions。
+
+发布范围仅为 `docs/showcase/`，包含页面、图片、视频和素材说明。App、模型配置和后端服务分别部署。README 封面链接到网页的 `#film` 播放区；MP4 原文件保留为独立下载入口。
 
 在个人网站已有案例页中嵌入视频时，可以使用：
 
