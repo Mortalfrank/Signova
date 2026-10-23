@@ -1,0 +1,1821 @@
+{
+  "schema": "signova.qwen-agent-benchmark/1",
+  "fingerprint": "add8a0417e64a52b35518d3e1d72a286a2afb0596c5c0e053df8412b43ab3be3",
+  "completedAt": "2026-10-23T04:30:58.623Z",
+  "complete": true,
+  "plannedObservations": 180,
+  "observed": 180,
+  "providerCalls": 172,
+  "summaries": {
+    "qwen-direct": {
+      "counts": {
+        "cases": 60,
+        "successfulCases": 57,
+        "decisionCorrectCases": 58,
+        "wrongBindingCases": 0,
+        "draftCorrectCases": 58,
+        "deadlineApplicableCases": 22,
+        "deadlineCorrectCases": 20,
+        "updateTargetApplicableCases": 22,
+        "updateTargetCorrectCases": 21,
+        "modelCalledCases": 60,
+        "errorCases": 0,
+        "missingUsageCount": 0
+      },
+      "rates": {
+        "taskSuccess": 0.95,
+        "decisionCorrect": 0.9666666666666667,
+        "wrongBinding": 0,
+        "draftCorrect": 0.9666666666666667,
+        "deadlineCorrect": 0.9090909090909091,
+        "updateTargetCorrect": 0.9545454545454546
+      },
+      "latency": {
+        "method": "nearest-rank",
+        "totalMs": {
+          "count": 60,
+          "p50": 3872.4477999999945,
+          "p95": 4582.560300000012,
+          "mean": 3872.8619349999985
+        },
+        "modelMs": {
+          "count": 60,
+          "p50": 3872.2880000000005,
+          "p95": 4582.411699999997,
+          "mean": 3872.684461666668
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "total": 100921,
+          "mean": 1682.0166666666667,
+          "count": 60
+        },
+        "completion_tokens": {
+          "total": 11152,
+          "mean": 185.86666666666667,
+          "count": 60
+        },
+        "total_tokens": {
+          "total": 112073,
+          "mean": 1867.8833333333334,
+          "count": 60
+        }
+      },
+      "missingUsageCount": 0
+    },
+    "qwen-keyword": {
+      "counts": {
+        "cases": 60,
+        "successfulCases": 55,
+        "decisionCorrectCases": 56,
+        "wrongBindingCases": 0,
+        "draftCorrectCases": 58,
+        "deadlineApplicableCases": 22,
+        "deadlineCorrectCases": 20,
+        "updateTargetApplicableCases": 22,
+        "updateTargetCorrectCases": 21,
+        "modelCalledCases": 60,
+        "errorCases": 0,
+        "missingUsageCount": 0
+      },
+      "rates": {
+        "taskSuccess": 0.9166666666666666,
+        "decisionCorrect": 0.9333333333333333,
+        "wrongBinding": 0,
+        "draftCorrect": 0.9666666666666667,
+        "deadlineCorrect": 0.9090909090909091,
+        "updateTargetCorrect": 0.9545454545454546
+      },
+      "latency": {
+        "method": "nearest-rank",
+        "totalMs": {
+          "count": 60,
+          "p50": 3862.644499999995,
+          "p95": 4657.593799999973,
+          "mean": 3892.909775
+        },
+        "modelMs": {
+          "count": 60,
+          "p50": 3862.4648999999918,
+          "p95": 4657.43280000001,
+          "mean": 3892.5679833333365
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "total": 100921,
+          "mean": 1682.0166666666667,
+          "count": 60
+        },
+        "completion_tokens": {
+          "total": 11139,
+          "mean": 185.65,
+          "count": 60
+        },
+        "total_tokens": {
+          "total": 112060,
+          "mean": 1867.6666666666667,
+          "count": 60
+        }
+      },
+      "missingUsageCount": 0
+    },
+    "signova-agent": {
+      "counts": {
+        "cases": 60,
+        "successfulCases": 51,
+        "decisionCorrectCases": 53,
+        "wrongBindingCases": 0,
+        "draftCorrectCases": 57,
+        "deadlineApplicableCases": 22,
+        "deadlineCorrectCases": 20,
+        "updateTargetApplicableCases": 23,
+        "updateTargetCorrectCases": 21,
+        "modelCalledCases": 52,
+        "errorCases": 0,
+        "missingUsageCount": 0
+      },
+      "rates": {
+        "taskSuccess": 0.85,
+        "decisionCorrect": 0.8833333333333333,
+        "wrongBinding": 0,
+        "draftCorrect": 0.95,
+        "deadlineCorrect": 0.9090909090909091,
+        "updateTargetCorrect": 0.9130434782608695
+      },
+      "latency": {
+        "method": "nearest-rank",
+        "totalMs": {
+          "count": 60,
+          "p50": 3709.268299999996,
+          "p95": 4517.715899999999,
+          "mean": 3222.226880000001
+        },
+        "modelMs": {
+          "count": 60,
+          "p50": 3708.788400000005,
+          "p95": 4517.214899999999,
+          "mean": 3221.7967466666682
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "total": 83351,
+          "mean": 1389.1833333333334,
+          "count": 60
+        },
+        "completion_tokens": {
+          "total": 9177,
+          "mean": 152.95,
+          "count": 60
+        },
+        "total_tokens": {
+          "total": 92528,
+          "mean": 1542.1333333333334,
+          "count": 60
+        }
+      },
+      "missingUsageCount": 0
+    }
+  },
+  "comparisons": {
+    "qwen-keyword": {
+      "pairedCases": 60,
+      "unpaired": {
+        "baseline": 0,
+        "candidate": 0
+      },
+      "taskSuccess": {
+        "baselineRate": 0.95,
+        "candidateRate": 0.9166666666666666,
+        "improvementPp": -3.3333333333333326,
+        "bootstrap95CiPp": [
+          -8.333333333333332,
+          0
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1682.0166666666667,
+          "candidateMean": 1682.0166666666667,
+          "absoluteReduction": 0,
+          "reductionPct": 0
+        },
+        "completion_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 185.86666666666667,
+          "candidateMean": 185.65,
+          "absoluteReduction": 0.21666666666666856,
+          "reductionPct": 0.11657101865136399
+        },
+        "total_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1867.8833333333334,
+          "candidateMean": 1867.6666666666667,
+          "absoluteReduction": 0.21666666666669698,
+          "reductionPct": 0.011599582415034681
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 60,
+          "baselineMean": 3872.861934999999,
+          "candidateMean": 3892.9097749999996,
+          "absoluteReduction": -20.047840000000633,
+          "reductionPct": -0.5176492303746594
+        },
+        "modelMs": {
+          "matchedCases": 60,
+          "baselineMean": 3872.684461666668,
+          "candidateMean": 3892.567983333336,
+          "absoluteReduction": -19.883521666668003,
+          "reductionPct": -0.5134299440990561
+        }
+      }
+    },
+    "signova-agent": {
+      "pairedCases": 60,
+      "unpaired": {
+        "baseline": 0,
+        "candidate": 0
+      },
+      "taskSuccess": {
+        "baselineRate": 0.95,
+        "candidateRate": 0.85,
+        "improvementPp": -9.999999999999998,
+        "bootstrap95CiPp": [
+          -20,
+          -1.6666666666666667
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1682.0166666666667,
+          "candidateMean": 1389.1833333333334,
+          "absoluteReduction": 292.83333333333326,
+          "reductionPct": 17.40965705849129
+        },
+        "completion_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 185.86666666666667,
+          "candidateMean": 152.95,
+          "absoluteReduction": 32.916666666666686,
+          "reductionPct": 17.709827833572465
+        },
+        "total_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1867.8833333333334,
+          "candidateMean": 1542.1333333333334,
+          "absoluteReduction": 325.75,
+          "reductionPct": 17.43952602321701
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 60,
+          "baselineMean": 3872.861934999999,
+          "candidateMean": 3222.2268800000006,
+          "absoluteReduction": 650.6350549999984,
+          "reductionPct": 16.79985152891846
+        },
+        "modelMs": {
+          "matchedCases": 60,
+          "baselineMean": 3872.684461666668,
+          "candidateMean": 3221.7967466666673,
+          "absoluteReduction": 650.8877150000008,
+          "reductionPct": 16.80714557157289
+        }
+      }
+    }
+  },
+  "successfulComparisons": {
+    "qwen-keyword": {
+      "pairedCases": 55,
+      "unpaired": {
+        "baseline": 2,
+        "candidate": 0
+      },
+      "taskSuccess": {
+        "baselineRate": 1,
+        "candidateRate": 1,
+        "improvementPp": 0,
+        "bootstrap95CiPp": [
+          0,
+          0
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 55,
+          "baselineMean": 1683.0363636363636,
+          "candidateMean": 1683.0363636363636,
+          "absoluteReduction": 0,
+          "reductionPct": 0
+        },
+        "completion_tokens": {
+          "matchedCases": 55,
+          "baselineMean": 187.07272727272726,
+          "candidateMean": 187.4181818181818,
+          "absoluteReduction": -0.3454545454545439,
+          "reductionPct": -0.18466323257848105
+        },
+        "total_tokens": {
+          "matchedCases": 55,
+          "baselineMean": 1870.1090909090908,
+          "candidateMean": 1870.4545454545455,
+          "absoluteReduction": -0.345454545454686,
+          "reductionPct": -0.018472427471423865
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 55,
+          "baselineMean": 3893.1615527272716,
+          "candidateMean": 3920.299029090909,
+          "absoluteReduction": -27.137476363637234,
+          "reductionPct": -0.6970549769409556
+        },
+        "modelMs": {
+          "matchedCases": 55,
+          "baselineMean": 3892.9900090909105,
+          "candidateMean": 3920.1003036363663,
+          "absoluteReduction": -27.110294545455872,
+          "reductionPct": -0.696387467785633
+        }
+      }
+    },
+    "signova-agent": {
+      "pairedCases": 50,
+      "unpaired": {
+        "baseline": 7,
+        "candidate": 1
+      },
+      "taskSuccess": {
+        "baselineRate": 1,
+        "candidateRate": 1,
+        "improvementPp": 0,
+        "bootstrap95CiPp": [
+          0,
+          0
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 50,
+          "baselineMean": 1682.22,
+          "candidateMean": 1413.9,
+          "absoluteReduction": 268.31999999999994,
+          "reductionPct": 15.950351321468057
+        },
+        "completion_tokens": {
+          "matchedCases": 50,
+          "baselineMean": 186.18,
+          "candidateMean": 158.66,
+          "absoluteReduction": 27.52000000000001,
+          "reductionPct": 14.7813943495542
+        },
+        "total_tokens": {
+          "matchedCases": 50,
+          "baselineMean": 1868.4,
+          "candidateMean": 1572.56,
+          "absoluteReduction": 295.84000000000015,
+          "reductionPct": 15.833868550631564
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 50,
+          "baselineMean": 3885.770794,
+          "candidateMean": 3288.7304600000007,
+          "absoluteReduction": 597.0403339999993,
+          "reductionPct": 15.364785152070382
+        },
+        "modelMs": {
+          "matchedCases": 50,
+          "baselineMean": 3885.5965180000003,
+          "candidateMean": 3288.3417120000004,
+          "absoluteReduction": 597.2548059999999,
+          "reductionPct": 15.370993957638705
+        }
+      }
+    }
+  },
+  "categories": {
+    "explicit": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 12,
+          "successfulCases": 12,
+          "decisionCorrectCases": 12,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 12,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 12,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 12,
+            "p50": 3782.189699999988,
+            "p95": 4363.966400000005,
+            "mean": 3936.5418250000002
+          },
+          "modelMs": {
+            "count": 12,
+            "p50": 3782.0511000000406,
+            "p95": 4363.796700000006,
+            "mean": 3936.359099999998
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 20261,
+            "mean": 1688.4166666666667,
+            "count": 12
+          },
+          "completion_tokens": {
+            "total": 2333,
+            "mean": 194.41666666666666,
+            "count": 12
+          },
+          "total_tokens": {
+            "total": 22594,
+            "mean": 1882.8333333333333,
+            "count": 12
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 12,
+          "successfulCases": 11,
+          "decisionCorrectCases": 11,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 12,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 12,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.9166666666666666,
+          "decisionCorrect": 0.9166666666666666,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 12,
+            "p50": 3929.6293000000005,
+            "p95": 4513.577399999995,
+            "mean": 3961.4859749999973
+          },
+          "modelMs": {
+            "count": 12,
+            "p50": 3929.4528000000137,
+            "p95": 4513.420099999988,
+            "mean": 3960.5910000000054
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 20261,
+            "mean": 1688.4166666666667,
+            "count": 12
+          },
+          "completion_tokens": {
+            "total": 2318,
+            "mean": 193.16666666666666,
+            "count": 12
+          },
+          "total_tokens": {
+            "total": 22579,
+            "mean": 1881.5833333333333,
+            "count": 12
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 12,
+          "successfulCases": 10,
+          "decisionCorrectCases": 10,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 12,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 12,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.8333333333333334,
+          "decisionCorrect": 0.8333333333333334,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 12,
+            "p50": 3830.1742000000086,
+            "p95": 4159.234200000006,
+            "mean": 3753.8692750000005
+          },
+          "modelMs": {
+            "count": 12,
+            "p50": 3829.874700000015,
+            "p95": 4158.786500000002,
+            "mean": 3753.240516666672
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 19307,
+            "mean": 1608.9166666666667,
+            "count": 12
+          },
+          "completion_tokens": {
+            "total": 2160,
+            "mean": 180,
+            "count": 12
+          },
+          "total_tokens": {
+            "total": 21467,
+            "mean": 1788.9166666666667,
+            "count": 12
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "context_reference": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 6,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 4,
+          "deadlineCorrectCases": 3,
+          "updateTargetApplicableCases": 4,
+          "updateTargetCorrectCases": 3,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.75,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 0.75,
+          "updateTargetCorrect": 0.75
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 4013.715200000006,
+            "p95": 4353.68759999999,
+            "mean": 3981.684199999995
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 4013.580600000001,
+            "p95": 4353.539400000009,
+            "mean": 3981.5269125000023
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13585,
+            "mean": 1698.125,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1558,
+            "mean": 194.75,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 15143,
+            "mean": 1892.875,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 6,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 4,
+          "deadlineCorrectCases": 3,
+          "updateTargetApplicableCases": 4,
+          "updateTargetCorrectCases": 3,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.75,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 0.75,
+          "updateTargetCorrect": 0.75
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3853.902900000001,
+            "p95": 4311.3404000000155,
+            "mean": 3906.5764375000026
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3853.6942000000054,
+            "p95": 4311.016000000003,
+            "mean": 3906.3797375000076
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13585,
+            "mean": 1698.125,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1521,
+            "mean": 190.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 15106,
+            "mean": 1888.25,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 6,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 4,
+          "deadlineCorrectCases": 3,
+          "updateTargetApplicableCases": 4,
+          "updateTargetCorrectCases": 3,
+          "modelCalledCases": 6,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.75,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 0.75,
+          "updateTargetCorrect": 0.75
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3709.268299999996,
+            "p95": 4366.3174,
+            "mean": 2878.4989499999992
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3708.788400000005,
+            "p95": 4365.920700000017,
+            "mean": 2878.0987625000034
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 9733,
+            "mean": 1216.625,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1124,
+            "mean": 140.5,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 10857,
+            "mean": 1357.125,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "ambiguous": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3743.2517000000225,
+            "p95": 4102.31240000001,
+            "mean": 3736.575687499999
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3743.0987000000314,
+            "p95": 4102.169699999999,
+            "mean": 3736.4177500000014
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13496,
+            "mean": 1687,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1439,
+            "mean": 179.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14935,
+            "mean": 1866.875,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3783.9910999999847,
+            "p95": 4515.480300000054,
+            "mean": 3881.6815875000066
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3783.831600000005,
+            "p95": 4515.333099999989,
+            "mean": 3881.4981374999998
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13496,
+            "mean": 1687,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1439,
+            "mean": 179.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14935,
+            "mean": 1866.875,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 6,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 2,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.75,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 0.29869999999937136,
+            "p95": 3667.564799999993,
+            "mean": 905.0763875000039
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 0,
+            "p95": 3667.3427000000374,
+            "mean": 904.816087500003
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 3117,
+            "mean": 389.625,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 335,
+            "mean": 41.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 3452,
+            "mean": 431.5,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "unrelated": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3887.3743999999715,
+            "p95": 4284.070800000001,
+            "mean": 3757.743012499998
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3887.231000000029,
+            "p95": 4283.9186000000045,
+            "mean": 3757.5651000000053
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13486,
+            "mean": 1685.75,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1285,
+            "mean": 160.625,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14771,
+            "mean": 1846.375,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3458.512700000021,
+            "p95": 4144.821800000005,
+            "mean": 3487.243612499997
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3458.0080000000016,
+            "p95": 4144.670500000007,
+            "mean": 3486.9997875000035
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13486,
+            "mean": 1685.75,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1231,
+            "mean": 153.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14717,
+            "mean": 1839.625,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2682.467399999994,
+            "p95": 3707.4764999999898,
+            "mean": 2853.9500624999946
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2681.8157000000065,
+            "p95": 3706.9119999999966,
+            "mean": 2853.520062499997
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12508,
+            "mean": 1563.5,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 961,
+            "mean": 120.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 13469,
+            "mean": 1683.625,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "correction": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3863.6734999999753,
+            "p95": 5109.470600000001,
+            "mean": 4074.2523999999903
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3863.5214999999735,
+            "p95": 5109.300400000007,
+            "mean": 4074.030850000003
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13583,
+            "mean": 1697.875,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1639,
+            "mean": 204.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 15222,
+            "mean": 1902.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 4084.048300000024,
+            "p95": 5448.772200000007,
+            "mean": 4329.370162499999
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 4083.861900000018,
+            "p95": 5448.580499999982,
+            "mean": 4329.154562499996
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13583,
+            "mean": 1697.875,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1721,
+            "mean": 215.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 15304,
+            "mean": 1913,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 7,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 7,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.875,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 0.875
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3793.6226000000024,
+            "p95": 4206.997700000007,
+            "mean": 3935.1325875000075
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3792.7026999999944,
+            "p95": 4206.677999999985,
+            "mean": 3934.740325000006
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12973,
+            "mean": 1621.625,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1549,
+            "mean": 193.625,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14522,
+            "mean": 1815.25,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "negation": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3907.9317000000156,
+            "p95": 4029.0210000000006,
+            "mean": 3893.681800000004
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3907.7718999999925,
+            "p95": 4028.8736000000026,
+            "mean": 3893.523799999999
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6747,
+            "mean": 1686.75,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 785,
+            "mean": 196.25,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7532,
+            "mean": 1883,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3727.8090000000084,
+            "p95": 4703.5792,
+            "mean": 4130.76825
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3727.6203999999852,
+            "p95": 4703.370599999998,
+            "mean": 4130.572049999998
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6747,
+            "mean": 1686.75,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 802,
+            "mean": 200.5,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7549,
+            "mean": 1887.25,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 4078.0701999999874,
+            "p95": 4578.3297999999995,
+            "mean": 4222.174274999993
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 4077.771999999997,
+            "p95": 4577.5681,
+            "mean": 4221.724549999993
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6480,
+            "mean": 1620,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 848,
+            "mean": 212,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7328,
+            "mean": 1832,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "conditional": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 4141.063000000002,
+            "p95": 4723.144800000009,
+            "mean": 4271.105050000007
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 4140.897500000006,
+            "p95": 4722.955000000016,
+            "mean": 4270.944825000002
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6765,
+            "mean": 1691.25,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 802,
+            "mean": 200.5,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7567,
+            "mean": 1891.75,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 4007.119799999986,
+            "p95": 4422.239099999999,
+            "mean": 4120.6357499999995
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 4006.8487000000023,
+            "p95": 4422.038500000002,
+            "mean": 4120.435925000007
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6765,
+            "mean": 1691.25,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 795,
+            "mean": 198.75,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7560,
+            "mean": 1890,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 3,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 3,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 1,
+          "updateTargetCorrectCases": 1,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 0.75,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 4389.282499999972,
+            "p95": 4734.7114,
+            "mean": 4438.718374999991
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 4389.009099999967,
+            "p95": 4733.956900000019,
+            "mean": 4438.296299999996
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6462,
+            "mean": 1615.5,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 857,
+            "mean": 214.25,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7319,
+            "mean": 1829.75,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "version_scope": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 7,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 2,
+          "deadlineCorrectCases": 1,
+          "updateTargetApplicableCases": 2,
+          "updateTargetCorrectCases": 2,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.875,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 0.5,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3553.691300000006,
+            "p95": 4629.147400000016,
+            "mean": 3509.0030500000075
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3553.5508999999875,
+            "p95": 4628.9571,
+            "mean": 3508.819887499997
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12998,
+            "mean": 1624.75,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1311,
+            "mean": 163.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14309,
+            "mean": 1788.625,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 2,
+          "deadlineCorrectCases": 1,
+          "updateTargetApplicableCases": 2,
+          "updateTargetCorrectCases": 2,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 0.5,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3613.6782999999996,
+            "p95": 4657.593799999973,
+            "mean": 3524.0205499999975
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3613.525400000013,
+            "p95": 4657.43280000001,
+            "mean": 3523.8371625000054
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12998,
+            "mean": 1624.75,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1312,
+            "mean": 164,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14310,
+            "mean": 1788.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 7,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 2,
+          "deadlineCorrectCases": 1,
+          "updateTargetApplicableCases": 2,
+          "updateTargetCorrectCases": 2,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.875,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 0.5,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3582.123800000001,
+            "p95": 4863.0082999999995,
+            "mean": 3632.7933750000066
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3581.868399999992,
+            "p95": 4861.762399999998,
+            "mean": 3632.4291624999996
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12771,
+            "mean": 1596.375,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1343,
+            "mean": 167.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14114,
+            "mean": 1764.25,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    }
+  },
+  "limitations": [
+    "Authored fictional cases are not an independent blind test or a public benchmark.",
+    "Model is a provider alias; temperature 0 is not a guarantee of deterministic hosted responses.",
+    "End-to-end latency here is text input to structured candidate, excluding microphone, ASR, sign generation and rendering.",
+    "Local ambiguity fast paths count as zero provider calls/tokens and are reported separately.",
+    "One observation per case/arm; wall-clock timing is affected by network, concurrent load and provider prompt caching.",
+    "Case-level bootstrap is conditional on this authored dataset; related domain/template families are not independent random user samples.",
+    "Internal taskSuccess means structured reference/draft-presence/update-target/date correctness, not action/material correctness, natural-language reply quality or sign-language comprehension."
+  ]
+}

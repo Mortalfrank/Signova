@@ -1,0 +1,47 @@
+name: Agent evaluation (offline)
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-evaluation:
+    name: Validate benchmark without model calls
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+
+      # Install from the lockfile; these checks do not need avatar asset generation.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      # No model credentials are injected. Tests use local fixtures and mocked calls.
+      - name: Run offline benchmark tests
+        run: >-
+          node --test
+          test/benchmark-arms.test.mjs
+          test/benchmark-dataset.test.mjs
+          test/benchmark-dataset-v2.test.mjs
+          test/benchmark-metrics.test.mjs
+          test/benchmark-runner.test.mjs
+
+      - name: Validate frozen evaluation plan without provider calls
+        run: node benchmarks/run.mjs --dry-run
+
+      - name: Recompute both published runs and verify frozen source fingerprints
+        run: |
+          node benchmarks/verify.mjs --run benchmarks/results/qwen-agent-v1
+          node benchmarks/verify.mjs --run benchmarks/results/qwen-agent-v2

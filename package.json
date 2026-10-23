@@ -6,9 +6,14 @@
   "description": "SIGNOVA mobile-first communication and confirmed task memory demo",
   "scripts": {
     "start": "node --env-file-if-exists=.env server.mjs",
-    "test": "node --test",
+    "test": "node scripts/test.mjs",
     "check": "node --check server.mjs && node --check model.mjs && node --check asr.mjs && node --check public/app.js && node --check public/asr-client.js && node --check public/pcm-worklet.js && node --check public/model-context.js && node --check public/core.js && node --check access.mjs && node --check showcase-static.mjs && node --check public/preview.js && node --check public/access-session.js && node --check scripts/access-key.mjs",
-    "test:connection": "node --env-file-if-exists=.env scripts/check-model.mjs"
+    "test:connection": "node --env-file-if-exists=.env scripts/check-model.mjs",
+    "bench:qwen": "node --env-file-if-exists=.env benchmarks/run.mjs --dataset benchmarks/datasets/communication-v2.jsonl --out benchmarks/results/qwen-agent-v2 --arms qwen-direct,qwen-keyword,signova-agent --max-model-calls 180",
+    "bench:qwen:dry": "node --env-file-if-exists=.env benchmarks/run.mjs --dataset benchmarks/datasets/communication-v2.jsonl --out benchmarks/results/qwen-agent-v2 --arms qwen-direct,qwen-keyword,signova-agent --max-model-calls 180 --dry-run",
+    "bench:qwen:report": "node benchmarks/report.mjs --run benchmarks/results/qwen-agent-v2",
+    "bench:qwen:verify": "node benchmarks/verify.mjs --run benchmarks/results/qwen-agent-v2",
+    "test:benchmark": "node --test test/benchmark-arms.test.mjs test/benchmark-dataset.test.mjs test/benchmark-dataset-v2.test.mjs test/benchmark-metrics.test.mjs test/benchmark-runner.test.mjs"
   },
   "engines": {
     "node": ">=22"

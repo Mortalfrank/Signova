@@ -1,0 +1,4 @@
+# Preserve LF for measured source/data SHA-256 across Windows and Linux.
+/benchmarks/** text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf

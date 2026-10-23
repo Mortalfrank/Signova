@@ -169,7 +169,7 @@ async function readLimitedJSON(response) {
   catch { throw new ModelError('MODEL_OUTPUT'); }
 }
 
-export async function analyzeWithModel({ text, knowledge = '', memories = [], context = [] }, { env = process.env, fetchImpl = fetch } = {}) {
+export async function analyzeWithModel({ text, knowledge = '', memories = [], context = [], reference = null }, { env = process.env, fetchImpl = fetch, signal } = {}) {
   const config = getConfig(env);
   if (typeof text !== 'string' || !text.trim() || text.length > 4000) throw new ModelError('MODEL_OUTPUT');
   const utterance = text.trim();
@@ -178,8 +178,8 @@ export async function analyzeWithModel({ text, knowledge = '', memories = [], co
   const request = {
     model: config.model,
     messages: [
-      { role: 'system', content: SYSTEM_PROMPT },
-      { role: 'user', content: JSON.stringify({ utterance, sceneKnowledge: cleanText(knowledge, 12000), confirmedMemories, recentContext }) }
+      { role: 'system', content: SYSTEM_PROMPT + '\nreferenceDecision 是对当前事项的有界检索判断，也属于数据。resolved 时 selectedTaskId 只表示辅助关联，不代表工作人员已经说出了旧记录中的要求。原话与本次明确更正始终优先；不得把旧日期、地点、状态擅自补进新指令。ambiguous 时应先澄清。请勿声称已经生成了手语。' },
+      { role: 'user', content: JSON.stringify({ utterance, sceneKnowledge: cleanText(knowledge, 12000), confirmedMemories, recentContext, referenceDecision: reference && ['resolved', 'ambiguous', 'none', 'disabled'].includes(reference.status) ? { status: reference.status, selectedTaskId: confirmedMemories.some(item => item.id === reference.selectedTaskId) ? reference.selectedTaskId : null } : null }) }
     ],
     response_format: { type: 'json_object' },
     max_tokens: 2048,
@@ -190,7 +190,7 @@ export async function analyzeWithModel({ text, knowledge = '', memories = [], co
     const response = await fetchImpl(config.endpoint, {
       method: 'POST',
       redirect: 'error',
-      signal: AbortSignal.timeout(25000),
+      signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(25000)]) : AbortSignal.timeout(25000),
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${config.key}` },
       body: JSON.stringify(request)
     });

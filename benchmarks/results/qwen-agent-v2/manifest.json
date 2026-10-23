@@ -1,0 +1,41 @@
+{
+  "frozenAt": "2026-10-23T04:25:27.237Z",
+  "fingerprint": "add8a0417e64a52b35518d3e1d72a286a2afb0596c5c0e053df8412b43ab3be3",
+  "schema": "signova.qwen-agent-benchmark/1",
+  "dataset": "benchmarks/datasets/communication-v2.jsonl",
+  "datasetSha256": "7b167c456400341b0de015cff9e2d1adb702e9a868f4edc8d80264d4ee901b24",
+  "samples": 60,
+  "arms": [
+    "qwen-direct",
+    "qwen-keyword",
+    "signova-agent"
+  ],
+  "repetitions": 1,
+  "seed": 231023,
+  "temperature": 0,
+  "thinking": "false",
+  "model": {
+    "configured": true,
+    "provider": "dashscope",
+    "model": "qwen3.7-plus"
+  },
+  "endpointIdentitySha256": "57ea92c0436d5e76e879dbc39a2e41a14abeba344dff778483dd97a24a41b2d8",
+  "maxTokens": 2048,
+  "timeoutMs": 25000,
+  "concurrency": 2,
+  "maxCalls": 180,
+  "evaluationContractSha256": "1e9ce577f377ed173e4520d3a80a10f705b888543276fc98de096b91fefa4be1",
+  "node": "v24.19.0",
+  "sourceSha256": {
+    "model.mjs": "53e1f1697a15712361283a744c3a0d5ee8ee1c27f6a33936fa917f2b9bf7520a",
+    "public/communication-analysis.js": "c122ba46f18bf74d6c100a3b6331950643e4129a107375cba96ffa8b0c2221e4",
+    "public/memory-resolution.js": "119e67350c4a3dc6b13ac022fbfaf54b32e970d5cc3b04bcdb75a33895623028",
+    "public/model-context.js": "d77d20bf03be0834e5e7b101362b84614f450b2f248916ed76c43f048c6c0083",
+    "public/core.js": "6c18bb6043a2a7dc1bbeaee590925aa52343d0f4bb795d5799983fc64a08b796",
+    "benchmarks/run.mjs": "76717f32e800b0b2c7b650ae789ca0ce5bc7c5b987b65ffbb8bfaf7da5da2456",
+    "benchmarks/lib/arms.mjs": "d60c7ea7ee3be98346f7188cc368fbb097ecf1f1fbb10cc8e6ea0c7eb69b1503",
+    "benchmarks/lib/metrics.mjs": "166fac05b202564ce03b12f741f10006d4d9eac950a2c1bdb5838556b7fba4e3",
+    "benchmarks/report.mjs": "92044f8d8a2dbe7f598a27dabe5c938359200a9333bfb285b2923082a2e3bcfb"
+  },
+  "scope": "Authored fictional frozen development evaluation; no independent blind test, no microphone, no sign-language quality or vendor-product comparison. Same model/system prompt and available evidence; input hygiene shared; no automatic retries."
+}

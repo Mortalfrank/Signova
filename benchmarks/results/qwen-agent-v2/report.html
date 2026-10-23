@@ -1,0 +1,4527 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SIGNOVA · Qwen Agent 评测</title><style>body{margin:0;background:#f4f7fb;color:#192942;font:15px/1.7 system-ui,sans-serif}main{max-width:1280px;margin:auto;padding:40px 24px}h1{font-size:32px;line-height:1.3}header p{max-width:900px;color:#56667d}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:30px 0}article{background:white;border:1px solid #dce5f0;border-radius:16px;padding:20px}h2{font-size:16px}strong{font-size:36px;color:#2467d5}article p{font-size:12px;color:#66758b}.bar{height:6px;background:#edf2f8;border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:#3979e4}dl{display:grid;grid-template-columns:1fr auto;font-size:13px}dd{margin:0}details{margin:10px 0;background:white;padding:14px;border-radius:10px;border:1px solid #dce5f0}summary{cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 ui-monospace,monospace}.note{background:#e8effa;padding:20px;border-radius:12px}</style><main><header><p>SIGNOVA / REPRODUCIBLE EVALUATION</p><h1>同一个 Qwen，比较不同交流处理策略</h1><p>60 条冻结合成场景 · qwen3.7-plus · 3 组 · 全量完成</p></header><div class="note">主指标只检查结构化引用、草稿存在性、更新对象和明确日期。样本及标签由 AI 辅助构建，尚未经独立人工复核。延迟仅含文本处理；本实验不比较百度/vivo产品，也不评估手语语言质量。</div><section class="grid"><article><h2>直接 Qwen（完整合法上下文）</h2><strong>95.0%</strong><p>结构化关联与日期通过率 · 57/60</p><div class="bar"><i style="width:95%"></i></div><dl><dt>模型调用</dt><dd>60</dd><dt>已知输入 Token</dt><dd>100921</dd><dt>usage 缺失</dt><dd>0</dd><dt>观测结束 P50 / P95</dt><dd>3872.4 / 4582.6 ms</dd><dt>错误绑定</dt><dd>0</dd></dl></article><article><h2>Qwen + 旧关键词检索</h2><strong>91.7%</strong><p>结构化关联与日期通过率 · 55/60</p><div class="bar"><i style="width:91.66666666666666%"></i></div><dl><dt>模型调用</dt><dd>60</dd><dt>已知输入 Token</dt><dd>100921</dd><dt>usage 缺失</dt><dd>0</dd><dt>观测结束 P50 / P95</dt><dd>3862.6 / 4657.6 ms</dd><dt>错误绑定</dt><dd>0</dd></dl></article><article><h2>SIGNOVA 完整 Agent</h2><strong>85.0%</strong><p>结构化关联与日期通过率 · 51/60</p><div class="bar"><i style="width:85%"></i></div><dl><dt>模型调用</dt><dd>52</dd><dt>已知输入 Token</dt><dd>83351</dd><dt>usage 缺失</dt><dd>0</dd><dt>观测结束 P50 / P95</dt><dd>3709.3 / 4517.7 ms</dd><dt>错误绑定</dt><dd>0</dd></dl></article></section><h2>逐题结果与预设标签</h2><details><summary>comm-v2-001 · school · 交换项目报名那份个人陈述，麻烦记一下，下周二前上传。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-exchange&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周二前&quot;
+  },
+  &quot;rationale&quot;: &quot;个人陈述明确属于交换项目报名，发言要求记录上传安排，应保留下周及之前的期限约束。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二前&quot;,
+          &quot;source&quot;: &quot;交换项目报名那份个人陈述，麻烦记一下，下周二前上传。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 175,
+        &quot;total_tokens&quot;: 1862,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3415.822900000001,
+        &quot;modelMs&quot;: 3415.536799999998
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二前&quot;,
+          &quot;source&quot;: &quot;交换项目报名那份个人陈述，麻烦记一下，下周二前上传。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 191,
+        &quot;total_tokens&quot;: 1878,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3852.9670000000006,
+        &quot;modelMs&quot;: 3852.7232000000004
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二前&quot;,
+          &quot;source&quot;: &quot;交换项目报名那份个人陈述，麻烦记一下，下周二前上传。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1612,
+        &quot;completion_tokens&quot;: 187,
+        &quot;total_tokens&quot;: 1799,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3619.885400000003,
+        &quot;modelMs&quot;: 3618.8788000000022
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-002 · school · 安全培训登记已经确认，周六上午到实验楼交签到确认单。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-safety&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;周六上午&quot;
+  },
+  &quot;rationale&quot;: &quot;培训登记与签到材料唯一对应，本轮给出了具体到场安排，应生成关联该事项的草稿。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-safety&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;实验室安全培训登记&quot;,
+          &quot;action&quot;: &quot;提交培训签到确认单&quot;,
+          &quot;deadline&quot;: &quot;周六上午&quot;,
+          &quot;source&quot;: &quot;安全培训登记已经确认，周六上午到实验楼交签到确认单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-safety&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1613,
+        &quot;completion_tokens&quot;: 211,
+        &quot;total_tokens&quot;: 1824,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4114.562199999986,
+        &quot;modelMs&quot;: 4114.3052000000025
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-safety&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;实验室安全培训登记&quot;,
+          &quot;action&quot;: &quot;提交培训签到确认单&quot;,
+          &quot;deadline&quot;: &quot;周六上午&quot;,
+          &quot;source&quot;: &quot;安全培训登记已经确认，周六上午到实验楼交签到确认单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-safety&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 215,
+        &quot;total_tokens&quot;: 1902,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4091.747299999988,
+        &quot;modelMs&quot;: 4091.6119999999646
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-safety&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;实验室安全培训登记&quot;,
+          &quot;action&quot;: &quot;提交培训签到确认单&quot;,
+          &quot;deadline&quot;: &quot;周六上午&quot;,
+          &quot;source&quot;: &quot;安全培训登记已经确认，周六上午到实验楼交签到确认单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-safety&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 203,
+        &quot;total_tokens&quot;: 1890,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3991.1865000000107,
+        &quot;modelMs&quot;: 3991.044200000004
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-003 · school · 咱们接着聊毕业照拍摄预约，先把流程过一遍。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-photo&quot;,
+    &quot;draft&quot;: &quot;optional&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;明确进入毕业拍摄议题，但尚未确定新动作或日期；关联正确性仍应评分。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1607,
+        &quot;completion_tokens&quot;: 173,
+        &quot;total_tokens&quot;: 1780,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3587.3401000000304,
+        &quot;modelMs&quot;: 3587.0871000000043
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1684,
+        &quot;completion_tokens&quot;: 172,
+        &quot;total_tokens&quot;: 1856,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4353.682299999986,
+        &quot;modelMs&quot;: 4353.483499999973
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1684,
+        &quot;completion_tokens&quot;: 173,
+        &quot;total_tokens&quot;: 1857,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3782.189699999988,
+        &quot;modelMs&quot;: 3782.0511000000406
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-004 · school · 刚说的那个，往后挪到下周四吧，附件还是原来那些。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-exchange&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周四&quot;
+  },
+  &quot;rationale&quot;: &quot;最近明确话题已转回交换报名，泛指承接该事项；新日期保留下周，不能沿用更早培训话题。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周四&quot;,
+          &quot;source&quot;: &quot;刚说的那个，往后挪到下周四吧，附件还是原来那些。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1629,
+        &quot;completion_tokens&quot;: 190,
+        &quot;total_tokens&quot;: 1819,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3709.268299999996,
+        &quot;modelMs&quot;: 3708.788400000005
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周四&quot;,
+          &quot;source&quot;: &quot;刚说的那个，往后挪到下周四吧，附件还是原来那些。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1704,
+        &quot;completion_tokens&quot;: 198,
+        &quot;total_tokens&quot;: 1902,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3980.2620999999926,
+        &quot;modelMs&quot;: 3980.0592999999935
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周四&quot;,
+          &quot;source&quot;: &quot;刚说的那个，往后挪到下周四吧，附件还是原来那些。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1704,
+        &quot;completion_tokens&quot;: 201,
+        &quot;total_tokens&quot;: 1905,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4013.715200000006,
+        &quot;modelMs&quot;: 4013.580600000001
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-005 · school · 这个尺码确认完还要本人再来一趟吗？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-photo&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;服装尺码承接毕业拍摄话题，当前只是询问是否到场，没有确认新增到场行动。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1620,
+        &quot;completion_tokens&quot;: 155,
+        &quot;total_tokens&quot;: 1775,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3399.626500000013,
+        &quot;modelMs&quot;: 3399.3650999999954
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1697,
+        &quot;completion_tokens&quot;: 184,
+        &quot;total_tokens&quot;: 1881,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3694.6468999999925,
+        &quot;modelMs&quot;: 3694.4979000000167
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1697,
+        &quot;completion_tokens&quot;: 189,
+        &quot;total_tokens&quot;: 1886,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3760.145499999984,
+        &quot;modelMs&quot;: 3760.0160000000033
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-006 · school · 交换项目报名的个人陈述周末交，可以吗？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;ambiguous&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;春季和暑期报名均有个人陈述，本轮未给项目批次，且为询问，需先确认所指事项。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1690,
+        &quot;completion_tokens&quot;: 186,
+        &quot;total_tokens&quot;: 1876,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3824.1478999999963,
+        &quot;modelMs&quot;: 3823.971599999997
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: null,
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 0.29869999999937136,
+        &quot;modelMs&quot;: 0
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1690,
+        &quot;completion_tokens&quot;: 155,
+        &quot;total_tokens&quot;: 1845,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3235.962400000004,
+        &quot;modelMs&quot;: 3235.8263000000006
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-007 · school · 上回那项，还有哪一步没弄？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;ambiguous&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;没有近期话题或本人选择，三项校园事务都可能指上回事项，不能按保存时间猜测。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1682,
+        &quot;completion_tokens&quot;: 192,
+        &quot;total_tokens&quot;: 1874,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4192.2716999999975,
+        &quot;modelMs&quot;: 4192.109599999996
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: null,
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 0.301499999994121,
+        &quot;modelMs&quot;: 0
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1682,
+        &quot;completion_tokens&quot;: 192,
+        &quot;total_tokens&quot;: 1874,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3867.092199999999,
+        &quot;modelMs&quot;: 3866.9420000000027
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-008 · school · 食堂后边新种的桂花开了，走过去一阵香。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;none&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;这句只描述校园植物，与交换报名、安全培训或毕业拍摄都无引用关系。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1683,
+        &quot;completion_tokens&quot;: 106,
+        &quot;total_tokens&quot;: 1789,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2667.9092999999993,
+        &quot;modelMs&quot;: 2667.7455000000045
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1683,
+        &quot;completion_tokens&quot;: 97,
+        &quot;total_tokens&quot;: 1780,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2989.9595000000045,
+        &quot;modelMs&quot;: 2989.775099999999
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1562,
+        &quot;completion_tokens&quot;: 97,
+        &quot;total_tokens&quot;: 1659,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2807.4818000000014,
+        &quot;modelMs&quot;: 2807.2091
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-009 · school · The evening light makes the lake look silver.</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;none&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;英文发言描述湖面光线，没有引用任何校园办理事项，也没有新建提醒要求。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1558,
+        &quot;completion_tokens&quot;: 130,
+        &quot;total_tokens&quot;: 1688,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3045.389999999985,
+        &quot;modelMs&quot;: 3045.1640999999945
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1679,
+        &quot;completion_tokens&quot;: 140,
+        &quot;total_tokens&quot;: 1819,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3255.1147000000055,
+        &quot;modelMs&quot;: 3254.977500000008
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1679,
+        &quot;completion_tokens&quot;: 183,
+        &quot;total_tokens&quot;: 1862,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4144.821800000005,
+        &quot;modelMs&quot;: 4144.670500000007
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-010 · school · 安全培训登记的确认单改成下周一之后再交，周日那次安排作废。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-safety&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周一之后&quot;
+  },
+  &quot;rationale&quot;: &quot;明确更改培训确认单提交安排，旧周日已作废，新要求包含下周与之后，不能只保留周一。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-safety&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周一之后&quot;,
+          &quot;source&quot;: &quot;安全培训登记的确认单改成下周一之后再交，周日那次安排作废。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-safety&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 190,
+        &quot;total_tokens&quot;: 1877,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3709.5255999999936,
+        &quot;modelMs&quot;: 3709.3580000000075
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-safety&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周一之后&quot;,
+          &quot;source&quot;: &quot;安全培训登记的确认单改成下周一之后再交，周日那次安排作废。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-safety&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1613,
+        &quot;completion_tokens&quot;: 208,
+        &quot;total_tokens&quot;: 1821,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4206.997700000007,
+        &quot;modelMs&quot;: 4206.677999999985
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-safety&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周一之后&quot;,
+          &quot;source&quot;: &quot;安全培训登记的确认单改成下周一之后再交，周日那次安排作废。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-safety&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 232,
+        &quot;total_tokens&quot;: 1919,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4526.793399999995,
+        &quot;modelMs&quot;: 4526.635699999984
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-011 · school · 我更正一下，不是月底，11月3日前办好；别按刚才说的月底来记。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-exchange&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;11月3日前&quot;
+  },
+  &quot;rationale&quot;: &quot;上文唯一定位交换报名，月底被排除，当前有效日期是十一月三日之前。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月3日前&quot;,
+          &quot;source&quot;: &quot;我更正一下，不是月底，11月3日前办好；别按刚才说的月底来记。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1629,
+        &quot;completion_tokens&quot;: 181,
+        &quot;total_tokens&quot;: 1810,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3700.72159999999,
+        &quot;modelMs&quot;: 3700.38890000002
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月3日前&quot;,
+          &quot;source&quot;: &quot;我更正一下，不是月底，11月3日前办好；别按刚才说的月底来记。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1704,
+        &quot;completion_tokens&quot;: 264,
+        &quot;total_tokens&quot;: 1968,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 5448.772200000007,
+        &quot;modelMs&quot;: 5448.580499999982
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月3日前&quot;,
+          &quot;source&quot;: &quot;我更正一下，不是月底，11月3日前办好；别按刚才说的月底来记。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;s2-exchange&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1704,
+        &quot;completion_tokens&quot;: 250,
+        &quot;total_tokens&quot;: 1954,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 5109.470600000001,
+        &quot;modelMs&quot;: 5109.300400000007
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-012 · school · 毕业照拍摄预约我先撤掉，尺码也不登记了。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-photo&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;目标仍是毕业拍摄事项，但用户要撤回，不能生成继续拍摄或继续登记尺码的行动草稿。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1684,
+        &quot;completion_tokens&quot;: 224,
+        &quot;total_tokens&quot;: 1908,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4513.682199999999,
+        &quot;modelMs&quot;: 4513.5124
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1684,
+        &quot;completion_tokens&quot;: 210,
+        &quot;total_tokens&quot;: 1894,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4029.0210000000006,
+        &quot;modelMs&quot;: 4028.8736000000026
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1651,
+        &quot;completion_tokens&quot;: 216,
+        &quot;total_tokens&quot;: 1867,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4517.715899999999,
+        &quot;modelMs&quot;: 4517.214899999999
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-013 · school · 交换项目报名如果通过院里初审，我再补个人陈述；初审还没消息。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-exchange&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;个人陈述补交受尚未确认的初审结果约束，当前只能识别事项，不能视作立即执行安排。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1688,
+        &quot;completion_tokens&quot;: 194,
+        &quot;total_tokens&quot;: 1882,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4422.239099999999,
+        &quot;modelMs&quot;: 4422.038500000002
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1613,
+        &quot;completion_tokens&quot;: 208,
+        &quot;total_tokens&quot;: 1821,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4211.393900000003,
+        &quot;modelMs&quot;: 4211.100899999998
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-exchange&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1688,
+        &quot;completion_tokens&quot;: 187,
+        &quot;total_tokens&quot;: 1875,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4141.063000000002,
+        &quot;modelMs&quot;: 4140.897500000006
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-014 · school · 毕业照拍摄预约就照最近确认的来。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;s2-photo&quot;,
+    &quot;draft&quot;: &quot;optional&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;当前个人档案较新版本已换服装，旧便签和另档案同名事项不参与当前关联；未指定新期限。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1691,
+        &quot;completion_tokens&quot;: 191,
+        &quot;total_tokens&quot;: 1882,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4155.959200000012,
+        &quot;modelMs&quot;: 4155.8152999999875
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1691,
+        &quot;completion_tokens&quot;: 201,
+        &quot;total_tokens&quot;: 1892,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4249.74530000001,
+        &quot;modelMs&quot;: 4249.571200000006
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;s2-photo&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1614,
+        &quot;completion_tokens&quot;: 181,
+        &quot;total_tokens&quot;: 1795,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3779.0328000000154,
+        &quot;modelMs&quot;: 3778.799500000023
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-015 · school · 新建一条提醒：下周一上午去实验楼参加安全培训。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;disabled&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周一上午&quot;
+  },
+  &quot;rationale&quot;: &quot;关闭记忆禁止引用旧事项，但本轮明确新建提醒及时间，应保留新草稿且不绑定旧编号。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1556,
+        &quot;completion_tokens&quot;: 110,
+        &quot;total_tokens&quot;: 1666,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2411.848300000005,
+        &quot;modelMs&quot;: 2411.6089999999895
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1556,
+        &quot;completion_tokens&quot;: 120,
+        &quot;total_tokens&quot;: 1676,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2630.9573999999993,
+        &quot;modelMs&quot;: 2630.8271999999997
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1564,
+        &quot;completion_tokens&quot;: 105,
+        &quot;total_tokens&quot;: 1669,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3582.123800000001,
+        &quot;modelMs&quot;: 3581.868399999992
+      },
+      &quot;pass&quot;: false
+    }
+  }
+}</pre></details><details><summary>comm-v2-016 · bank · 存款证明开具改约下周三下午，我本人带网点预约单过去。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-deposit&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周三下午&quot;
+  },
+  &quot;rationale&quot;: &quot;明确点名开具业务并确认本人到场，新日期包含下周和下午，应更新正确事项。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周三下午&quot;,
+          &quot;source&quot;: &quot;存款证明开具改约下周三下午，我本人带网点预约单过去。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-deposit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1693,
+        &quot;completion_tokens&quot;: 180,
+        &quot;total_tokens&quot;: 1873,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3691.0781000000134,
+        &quot;modelMs&quot;: 3690.9572000000044
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周三下午&quot;,
+          &quot;source&quot;: &quot;存款证明开具改约下周三下午，我本人带网点预约单过去。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-deposit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1693,
+        &quot;completion_tokens&quot;: 187,
+        &quot;total_tokens&quot;: 1880,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3824.141499999998,
+        &quot;modelMs&quot;: 3823.953300000023
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周三下午&quot;,
+          &quot;source&quot;: &quot;存款证明开具改约下周三下午，我本人带网点预约单过去。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-deposit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1619,
+        &quot;completion_tokens&quot;: 191,
+        &quot;total_tokens&quot;: 1810,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3830.1742000000086,
+        &quot;modelMs&quot;: 3829.874700000015
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-017 · bank · 短信提醒签约的确认单，11月2日之后交到柜台。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-sms&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;11月2日之后&quot;
+  },
+  &quot;rationale&quot;: &quot;业务及签约材料清楚，当前要求是十一月二日之后提交，之后约束不能被丢掉。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月2日之后&quot;,
+          &quot;source&quot;: &quot;短信提醒签约的确认单，11月2日之后交到柜台。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-sms&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1692,
+        &quot;completion_tokens&quot;: 223,
+        &quot;total_tokens&quot;: 1915,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4513.577399999995,
+        &quot;modelMs&quot;: 4513.420099999988
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月2日之后&quot;,
+          &quot;source&quot;: &quot;短信提醒签约的确认单，11月2日之后交到柜台。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-sms&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1692,
+        &quot;completion_tokens&quot;: 224,
+        &quot;total_tokens&quot;: 1916,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4311.449299999993,
+        &quot;modelMs&quot;: 4311.3110000000015
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月2日之后&quot;,
+          &quot;source&quot;: &quot;短信提醒签约的确认单，11月2日之后交到柜台。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-sms&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1662,
+        &quot;completion_tokens&quot;: 204,
+        &quot;total_tokens&quot;: 1866,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4122.6584,
+        &quot;modelMs&quot;: 4122.321800000005
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-018 · bank · Next on the agenda is registered mobile number verification.</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-phone&quot;,
+    &quot;draft&quot;: &quot;optional&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;场景资料给出英文业务名称对应手机号核验，本句只引入议题，没有新增执行安排。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-phone&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1685,
+        &quot;completion_tokens&quot;: 206,
+        &quot;total_tokens&quot;: 1891,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4159.865500000014,
+        &quot;modelMs&quot;: 4159.729999999981
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-phone&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1685,
+        &quot;completion_tokens&quot;: 192,
+        &quot;total_tokens&quot;: 1877,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3858.626099999994,
+        &quot;modelMs&quot;: 3858.4533999999985
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1562,
+        &quot;completion_tokens&quot;: 99,
+        &quot;total_tokens&quot;: 1661,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2717.133299999987,
+        &quot;modelMs&quot;: 2716.9022000000114
+      },
+      &quot;pass&quot;: false
+    }
+  }
+}</pre></details><details><summary>comm-v2-019 · bank · 那份补齐的时间就定下周五之前，别的先不变。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-deposit&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周五之前&quot;
+  },
+  &quot;rationale&quot;: &quot;最近话题是存款证明材料，日期变更承接它；不能退回更早手机号话题或省略下周之前约束。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周五之前&quot;,
+          &quot;source&quot;: &quot;那份补齐的时间就定下周五之前，别的先不变。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-deposit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1634,
+        &quot;completion_tokens&quot;: 190,
+        &quot;total_tokens&quot;: 1824,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3724.7860999999975,
+        &quot;modelMs&quot;: 3724.433400000009
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1708,
+        &quot;completion_tokens&quot;: 207,
+        &quot;total_tokens&quot;: 1915,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4353.68759999999,
+        &quot;modelMs&quot;: 4353.539400000009
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1708,
+        &quot;completion_tokens&quot;: 199,
+        &quot;total_tokens&quot;: 1907,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4138.858300000007,
+        &quot;modelMs&quot;: 4138.709499999997
+      },
+      &quot;pass&quot;: false
+    }
+  }
+}</pre></details><details><summary>comm-v2-020 · bank · Do I need to come in person for that?</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-sms&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;英文泛指承接短信提醒签约，场景资料提供术语含义；是否到场的问句不构成确定行动。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: null,
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 0.32209999999031425,
+        &quot;modelMs&quot;: 0
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1693,
+        &quot;completion_tokens&quot;: 162,
+        &quot;total_tokens&quot;: 1855,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3520.8739999999816,
+        &quot;modelMs&quot;: 3520.738799999992
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1693,
+        &quot;completion_tokens&quot;: 164,
+        &quot;total_tokens&quot;: 1857,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3490.061400000006,
+        &quot;modelMs&quot;: 3489.8835000000254
+      },
+      &quot;pass&quot;: false
+    }
+  }
+}</pre></details><details><summary>comm-v2-021 · bank · 预留手机号核验要重新来一次。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;ambiguous&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;主卡和附卡的号码核验是两件已存事项，本轮未指明卡类型，不应自动更新其中一项。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1689,
+        &quot;completion_tokens&quot;: 163,
+        &quot;total_tokens&quot;: 1852,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3698.260100000014,
+        &quot;modelMs&quot;: 3698.104500000016
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: null,
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 0.17040000000270084,
+        &quot;modelMs&quot;: 0
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1689,
+        &quot;completion_tokens&quot;: 185,
+        &quot;total_tokens&quot;: 1874,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3693.6284999999916,
+        &quot;modelMs&quot;: 3693.477899999998
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-022 · bank · 之前办的那单，柜台有结果了吗？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;ambiguous&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;没有当前话题锚点，短信、证明和手机号三件业务都可对应之前那单，应请求澄清。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1686,
+        &quot;completion_tokens&quot;: 190,
+        &quot;total_tokens&quot;: 1876,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3743.2517000000225,
+        &quot;modelMs&quot;: 3743.0987000000314
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1686,
+        &quot;completion_tokens&quot;: 179,
+        &quot;total_tokens&quot;: 1865,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4515.480300000054,
+        &quot;modelMs&quot;: 4515.333099999989
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1563,
+        &quot;completion_tokens&quot;: 162,
+        &quot;total_tokens&quot;: 1725,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3667.564799999993,
+        &quot;modelMs&quot;: 3667.3427000000374
+      },
+      &quot;pass&quot;: false
+    }
+  }
+}</pre></details><details><summary>comm-v2-023 · bank · 路口那家面包店换了招牌，远远就能看见。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;none&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;发言评价街边店铺，跟保存的银行窗口业务无关，不应引用个人事项。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1565,
+        &quot;completion_tokens&quot;: 85,
+        &quot;total_tokens&quot;: 1650,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2269.396000000008,
+        &quot;modelMs&quot;: 2269.1443
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1688,
+        &quot;completion_tokens&quot;: 154,
+        &quot;total_tokens&quot;: 1842,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4284.070800000001,
+        &quot;modelMs&quot;: 4283.9186000000045
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1688,
+        &quot;completion_tokens&quot;: 154,
+        &quot;total_tokens&quot;: 1842,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3230.7687000000005,
+        &quot;modelMs&quot;: 3230.5791000000027
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-024 · bank · A cyclist rang the bell twice near the riverside path.</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;none&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;英文叙述骑行见闻，没有银行业务名称或有依据的事项指代，应保持不关联。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 177,
+        &quot;total_tokens&quot;: 1864,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3887.3743999999715,
+        &quot;modelMs&quot;: 3887.231000000029
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 187,
+        &quot;total_tokens&quot;: 1874,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3975.2062999999616,
+        &quot;modelMs&quot;: 3975.0319000000018
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1564,
+        &quot;completion_tokens&quot;: 158,
+        &quot;total_tokens&quot;: 1722,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3240.7957999999635,
+        &quot;modelMs&quot;: 3240.5106999999844
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-025 · bank · 短信提醒签约截止日不是11月1日，按11月4日前交单。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-sms&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;11月4日前&quot;
+  },
+  &quot;rationale&quot;: &quot;业务被明确点名，十一月一日已否定，当前交单期限是十一月四日之前。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月4日前&quot;,
+          &quot;source&quot;: &quot;短信提醒签约截止日不是11月1日，按11月4日前交单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-sms&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1621,
+        &quot;completion_tokens&quot;: 203,
+        &quot;total_tokens&quot;: 1824,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4116.522800000006,
+        &quot;modelMs&quot;: 4116.141200000013
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月4日前&quot;,
+          &quot;source&quot;: &quot;短信提醒签约截止日不是11月1日，按11月4日前交单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-sms&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1697,
+        &quot;completion_tokens&quot;: 202,
+        &quot;total_tokens&quot;: 1899,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3934.840599999996,
+        &quot;modelMs&quot;: 3934.6754000000074
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月4日前&quot;,
+          &quot;source&quot;: &quot;短信提醒签约截止日不是11月1日，按11月4日前交单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-sms&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1697,
+        &quot;completion_tokens&quot;: 205,
+        &quot;total_tokens&quot;: 1902,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4174.249199999991,
+        &quot;modelMs&quot;: 4174.0668000000005
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-026 · bank · 应该是下周二下午，不是这周二下午，我刚说快了。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-deposit&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周二下午&quot;
+  },
+  &quot;rationale&quot;: &quot;同一个星期二有不同周次，上文确定开具业务，当前肯定下周下午而否定这周下午。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二下午&quot;,
+          &quot;source&quot;: &quot;应该是下周二下午，不是这周二下午，我刚说快了。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-deposit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1700,
+        &quot;completion_tokens&quot;: 198,
+        &quot;total_tokens&quot;: 1898,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3863.6734999999753,
+        &quot;modelMs&quot;: 3863.5214999999735
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二下午&quot;,
+          &quot;source&quot;: &quot;应该是下周二下午，不是这周二下午，我刚说快了。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-deposit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1700,
+        &quot;completion_tokens&quot;: 200,
+        &quot;total_tokens&quot;: 1900,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3936.6694000000134,
+        &quot;modelMs&quot;: 3936.5050000000047
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二下午&quot;,
+          &quot;source&quot;: &quot;应该是下周二下午，不是这周二下午，我刚说快了。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;b2-deposit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1626,
+        &quot;completion_tokens&quot;: 179,
+        &quot;total_tokens&quot;: 1805,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3609.1387000000104,
+        &quot;modelMs&quot;: 3608.8329000000376
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-027 · bank · 预留手机号核验先别继续，我这次不办了。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-phone&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;当前明确停止手机号核验，引用目标仍清楚，但不能生成继续核验的待办行动。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-phone&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1688,
+        &quot;completion_tokens&quot;: 182,
+        &quot;total_tokens&quot;: 1870,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3727.8090000000084,
+        &quot;modelMs&quot;: 3727.6203999999852
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-phone&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1688,
+        &quot;completion_tokens&quot;: 191,
+        &quot;total_tokens&quot;: 1879,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3907.9317000000156,
+        &quot;modelMs&quot;: 3907.7718999999925
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-phone&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1608,
+        &quot;completion_tokens&quot;: 187,
+        &quot;total_tokens&quot;: 1795,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3714.581199999986,
+        &quot;modelMs&quot;: 3714.343199999974
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-028 · bank · 短信提醒签约等本人现场签字后再交确认单；我还没签字。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-sms&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;提交确认单以尚未完成的现场签字为前提，能识别业务不等于现在可以生成即时提交草稿。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1692,
+        &quot;completion_tokens&quot;: 212,
+        &quot;total_tokens&quot;: 1904,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4160.997499999998,
+        &quot;modelMs&quot;: 4160.828000000009
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1616,
+        &quot;completion_tokens&quot;: 224,
+        &quot;total_tokens&quot;: 1840,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4734.7114,
+        &quot;modelMs&quot;: 4733.956900000019
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-sms&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1692,
+        &quot;completion_tokens&quot;: 232,
+        &quot;total_tokens&quot;: 1924,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4723.144800000009,
+        &quot;modelMs&quot;: 4722.955000000016
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-029 · bank · 存款证明开具沿用最后确认的资料要求就好。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;b2-deposit&quot;,
+    &quot;draft&quot;: &quot;optional&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;同编号当前个人记录已有更新，应取电子预约码版本；另档案记录和较旧纸质单不作为当前材料。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1611,
+        &quot;completion_tokens&quot;: 211,
+        &quot;total_tokens&quot;: 1822,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4139.312400000024,
+        &quot;modelMs&quot;: 4139.006399999984
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1685,
+        &quot;completion_tokens&quot;: 176,
+        &quot;total_tokens&quot;: 1861,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3606.5207999999984,
+        &quot;modelMs&quot;: 3606.38440000001
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;b2-deposit&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1685,
+        &quot;completion_tokens&quot;: 170,
+        &quot;total_tokens&quot;: 1855,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3613.6782999999996,
+        &quot;modelMs&quot;: 3613.525400000013
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-030 · bank · 给我另建一条：下周四上午去柜台做预留手机号核验。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;disabled&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周四上午&quot;
+  },
+  &quot;rationale&quot;: &quot;访客不能访问个人旧事项，但本轮明确另建到场提醒，应生成新草稿且不暴露个人旧编号。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;预留手机号核验&quot;,
+          &quot;action&quot;: &quot;去柜台做预留手机号核验&quot;,
+          &quot;deadline&quot;: &quot;下周四上午&quot;,
+          &quot;source&quot;: &quot;给我另建一条：下周四上午去柜台做预留手机号核验。&quot;,
+          &quot;correction&quot;: false
+        },
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1568,
+        &quot;completion_tokens&quot;: 165,
+        &quot;total_tokens&quot;: 1733,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3364.265400000004,
+        &quot;modelMs&quot;: 3364.0149999999994
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;预留手机号核验&quot;,
+          &quot;action&quot;: &quot;去柜台做预留手机号核验&quot;,
+          &quot;deadline&quot;: &quot;下周四上午&quot;,
+          &quot;source&quot;: &quot;给我另建一条：下周四上午去柜台做预留手机号核验。&quot;,
+          &quot;correction&quot;: false
+        },
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1560,
+        &quot;completion_tokens&quot;: 171,
+        &quot;total_tokens&quot;: 1731,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3553.691300000006,
+        &quot;modelMs&quot;: 3553.5508999999875
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;预留手机号核验&quot;,
+          &quot;action&quot;: &quot;去柜台做预留手机号核验&quot;,
+          &quot;deadline&quot;: &quot;下周四上午&quot;,
+          &quot;source&quot;: &quot;给我另建一条：下周四上午去柜台做预留手机号核验。&quot;,
+          &quot;correction&quot;: false
+        },
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1560,
+        &quot;completion_tokens&quot;: 177,
+        &quot;total_tokens&quot;: 1737,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3640.580900000001,
+        &quot;modelMs&quot;: 3640.450899999996
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-031 · public_service · 公园志愿者登记帮我记下，下周一中午前把意向表交过去。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周一中午前&quot;
+  },
+  &quot;rationale&quot;: &quot;当前点名志愿服务登记并明确意向表提交时限，草稿需保留下周、中午和之前的约束。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周一中午前&quot;,
+          &quot;source&quot;: &quot;公园志愿者登记帮我记下，下周一中午前把意向表交过去。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-volunteer&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1685,
+        &quot;completion_tokens&quot;: 194,
+        &quot;total_tokens&quot;: 1879,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4074.0908000000054,
+        &quot;modelMs&quot;: 4073.855099999986
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周一中午前&quot;,
+          &quot;source&quot;: &quot;公园志愿者登记帮我记下，下周一中午前把意向表交过去。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-volunteer&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1685,
+        &quot;completion_tokens&quot;: 207,
+        &quot;total_tokens&quot;: 1892,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4025.9737000000023,
+        &quot;modelMs&quot;: 4025.773600000015
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周一中午前&quot;,
+          &quot;source&quot;: &quot;公园志愿者登记帮我记下，下周一中午前把意向表交过去。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-volunteer&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1611,
+        &quot;completion_tokens&quot;: 197,
+        &quot;total_tokens&quot;: 1808,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3867.3096999999834,
+        &quot;modelMs&quot;: 3867.043399999995
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-032 · public_service · 社区活动室预约定在11月6日下午交使用清单。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-room&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;11月6日下午&quot;
+  },
+  &quot;rationale&quot;: &quot;活动室业务和使用清单唯一对应，本轮给出具体日期及下午时段，应记录到同一事项。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月6日下午&quot;,
+          &quot;source&quot;: &quot;社区活动室预约定在11月6日下午交使用清单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-room&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1683,
+        &quot;completion_tokens&quot;: 218,
+        &quot;total_tokens&quot;: 1901,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4363.966400000005,
+        &quot;modelMs&quot;: 4363.796700000006
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月6日下午&quot;,
+          &quot;source&quot;: &quot;社区活动室预约定在11月6日下午交使用清单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-room&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1605,
+        &quot;completion_tokens&quot;: 210,
+        &quot;total_tokens&quot;: 1815,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4125.9179,
+        &quot;modelMs&quot;: 4125.6224000000075
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月6日下午&quot;,
+          &quot;source&quot;: &quot;社区活动室预约定在11月6日下午交使用清单。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-room&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1683,
+        &quot;completion_tokens&quot;: 213,
+        &quot;total_tokens&quot;: 1896,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4058.0214000000124,
+        &quot;modelMs&quot;: 4057.866399999999
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-033 · public_service · 我们先说说便民自行车押金退还，听一下整个办理流程。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+    &quot;draft&quot;: &quot;optional&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;发言清楚识别退押业务，但仅请求介绍整体流程，没有确认新的提交动作或截止日期。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1681,
+        &quot;completion_tokens&quot;: 174,
+        &quot;total_tokens&quot;: 1855,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3719.813200000004,
+        &quot;modelMs&quot;: 3719.6563000000024
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1681,
+        &quot;completion_tokens&quot;: 179,
+        &quot;total_tokens&quot;: 1860,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3601.8125,
+        &quot;modelMs&quot;: 3601.635799999989
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1608,
+        &quot;completion_tokens&quot;: 190,
+        &quot;total_tokens&quot;: 1798,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4028.765400000004,
+        &quot;modelMs&quot;: 4028.4804000000004
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-034 · public_service · 那项周五晚上前弄好，表格还是刚才那张。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;周五晚上前&quot;
+  },
+  &quot;rationale&quot;: &quot;最新话题已从活动室转为志愿登记，代词承接意向表，晚上之前是本轮明确的时间限制。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;周五晚上前&quot;,
+          &quot;source&quot;: &quot;那项周五晚上前弄好，表格还是刚才那张。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-volunteer&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1625,
+        &quot;completion_tokens&quot;: 220,
+        &quot;total_tokens&quot;: 1845,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4366.3174,
+        &quot;modelMs&quot;: 4365.920700000017
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;周五晚上前&quot;,
+          &quot;source&quot;: &quot;那项周五晚上前弄好，表格还是刚才那张。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-volunteer&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1699,
+        &quot;completion_tokens&quot;: 205,
+        &quot;total_tokens&quot;: 1904,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4092.1839000000036,
+        &quot;modelMs&quot;: 4091.979000000021
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;周五晚上前&quot;,
+          &quot;source&quot;: &quot;那项周五晚上前弄好，表格还是刚才那张。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-volunteer&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1699,
+        &quot;completion_tokens&quot;: 211,
+        &quot;total_tokens&quot;: 1910,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4159.412899999996,
+        &quot;modelMs&quot;: 4159.236900000018
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-035 · public_service · 这笔可以走线上退吗？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;本人选择的退押事项为泛指提供依据，当前询问渠道可行性，不代表已经确认退还行动。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1679,
+        &quot;completion_tokens&quot;: 179,
+        &quot;total_tokens&quot;: 1858,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3853.902900000001,
+        &quot;modelMs&quot;: 3853.6942000000054
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1606,
+        &quot;completion_tokens&quot;: 189,
+        &quot;total_tokens&quot;: 1795,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3969.337800000001,
+        &quot;modelMs&quot;: 3968.9346000000005
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1679,
+        &quot;completion_tokens&quot;: 174,
+        &quot;total_tokens&quot;: 1853,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3688.006199999996,
+        &quot;modelMs&quot;: 3687.8507000000027
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-036 · public_service · 便民自行车押金退还那张登记联还要交吗？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;ambiguous&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;旧卡和新卡分别有退押事项，本轮未指定卡片且为疑问，不能从相同登记联字样推定目标。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1692,
+        &quot;completion_tokens&quot;: 178,
+        &quot;total_tokens&quot;: 1870,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4102.31240000001,
+        &quot;modelMs&quot;: 4102.169699999999
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: null,
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 0.157100000011269,
+        &quot;modelMs&quot;: 0
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1692,
+        &quot;completion_tokens&quot;: 181,
+        &quot;total_tokens&quot;: 1873,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3582.05720000001,
+        &quot;modelMs&quot;: 3581.8771000000124
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-037 · public_service · 那一单现在还缺啥？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;ambiguous&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;没有前文或本人选择来界定那一单，三个便民业务都可能成立，应先问清业务。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1675,
+        &quot;completion_tokens&quot;: 191,
+        &quot;total_tokens&quot;: 1866,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3862.644499999995,
+        &quot;modelMs&quot;: 3862.4648999999918
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1554,
+        &quot;completion_tokens&quot;: 173,
+        &quot;total_tokens&quot;: 1727,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3571.6369000000122,
+        &quot;modelMs&quot;: 3571.185999999987
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1675,
+        &quot;completion_tokens&quot;: 181,
+        &quot;total_tokens&quot;: 1856,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3621.126399999979,
+        &quot;modelMs&quot;: 3620.98609999998
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-038 · public_service · 河边长椅刚刷完漆，坐之前看看有没有提示牌。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;none&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;这是公共环境提醒，不涉及志愿登记、退押或活动室事项，不应检索个人办理资料。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1563,
+        &quot;completion_tokens&quot;: 109,
+        &quot;total_tokens&quot;: 1672,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2582.7387000000163,
+        &quot;modelMs&quot;: 2582.434899999993
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1684,
+        &quot;completion_tokens&quot;: 131,
+        &quot;total_tokens&quot;: 1815,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3634.3387999999977,
+        &quot;modelMs&quot;: 3634.0732000000135
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1684,
+        &quot;completion_tokens&quot;: 142,
+        &quot;total_tokens&quot;: 1826,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3316.152000000002,
+        &quot;modelMs&quot;: 3315.994100000011
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-039 · public_service · The street performers used only drums and wooden flutes.</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;none&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;英文描述街头表演的乐器，与保存的三种便民服务无关，也未提出新提醒。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1558,
+        &quot;completion_tokens&quot;: 165,
+        &quot;total_tokens&quot;: 1723,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3707.4764999999898,
+        &quot;modelMs&quot;: 3706.9119999999966
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1679,
+        &quot;completion_tokens&quot;: 188,
+        &quot;total_tokens&quot;: 1867,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4011.0169000000024,
+        &quot;modelMs&quot;: 4010.847299999994
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1679,
+        &quot;completion_tokens&quot;: 172,
+        &quot;total_tokens&quot;: 1851,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3692.3937999999907,
+        &quot;modelMs&quot;: 3692.1794999999984
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-040 · public_service · 社区活动室预约的表格不在周六交了，改成下周二之前交。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-room&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周二之前&quot;
+  },
+  &quot;rationale&quot;: &quot;直接点名活动室并撤销周六安排，新要求是下周二之前，应保留周次和之前约束。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二之前&quot;,
+          &quot;source&quot;: &quot;社区活动室预约的表格不在周六交了，改成下周二之前交。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-room&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1684,
+        &quot;completion_tokens&quot;: 182,
+        &quot;total_tokens&quot;: 1866,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3634.9878000000026,
+        &quot;modelMs&quot;: 3634.4022000000114
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二之前&quot;,
+          &quot;source&quot;: &quot;社区活动室预约的表格不在周六交了，改成下周二之前交。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-room&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1606,
+        &quot;completion_tokens&quot;: 187,
+        &quot;total_tokens&quot;: 1793,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3793.6226000000024,
+        &quot;modelMs&quot;: 3792.7026999999944
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周二之前&quot;,
+          &quot;source&quot;: &quot;社区活动室预约的表格不在周六交了，改成下周二之前交。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-room&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1684,
+        &quot;completion_tokens&quot;: 182,
+        &quot;total_tokens&quot;: 1866,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3734.2085999999836,
+        &quot;modelMs&quot;: 3733.6749999999884
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-041 · public_service · 不是11月3日，最后定11月5日上午，刚才那个数我念错了。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;11月5日上午&quot;
+  },
+  &quot;rationale&quot;: &quot;上文明确退押业务，当前否定十一月三日并确定十一月五日上午，是同一事项的日期更正。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月5日上午&quot;,
+          &quot;source&quot;: &quot;不是11月3日，最后定11月5日上午，刚才那个数我念错了。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-bicycle&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1629,
+        &quot;completion_tokens&quot;: 202,
+        &quot;total_tokens&quot;: 1831,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4200.011300000013,
+        &quot;modelMs&quot;: 4199.68339999998
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月5日上午&quot;,
+          &quot;source&quot;: &quot;不是11月3日，最后定11月5日上午，刚才那个数我念错了。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-bicycle&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1702,
+        &quot;completion_tokens&quot;: 224,
+        &quot;total_tokens&quot;: 1926,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4582.560300000012,
+        &quot;modelMs&quot;: 4582.411699999997
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月5日上午&quot;,
+          &quot;source&quot;: &quot;不是11月3日，最后定11月5日上午，刚才那个数我念错了。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;p2-bicycle&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1702,
+        &quot;completion_tokens&quot;: 241,
+        &quot;total_tokens&quot;: 1943,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 5086.834299999988,
+        &quot;modelMs&quot;: 5086.6734
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-042 · public_service · 公园志愿者登记撤回吧，我不参加这轮招募了。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;用户取消志愿报名，业务身份仍明确，但系统不应生成继续提交意向表的任务。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1682,
+        &quot;completion_tokens&quot;: 235,
+        &quot;total_tokens&quot;: 1917,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4703.5792,
+        &quot;modelMs&quot;: 4703.370599999998
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1682,
+        &quot;completion_tokens&quot;: 183,
+        &quot;total_tokens&quot;: 1865,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3661.6157999999996,
+        &quot;modelMs&quot;: 3661.443900000002
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-volunteer&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1608,
+        &quot;completion_tokens&quot;: 238,
+        &quot;total_tokens&quot;: 1846,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4578.3297999999995,
+        &quot;modelMs&quot;: 4577.5681
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-043 · public_service · 只有负责人签了确认页，社区活动室预约才提交；负责人现在没签。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-room&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;当前明确缺少负责人签字，提交预约的条件尚未满足，不能当作已确定的即时行动。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 195,
+        &quot;total_tokens&quot;: 1882,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3892.1866000000155,
+        &quot;modelMs&quot;: 3892.028500000015
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1687,
+        &quot;completion_tokens&quot;: 182,
+        &quot;total_tokens&quot;: 1869,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3708.7147000000114,
+        &quot;modelMs&quot;: 3708.572199999995
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-room&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1609,
+        &quot;completion_tokens&quot;: 209,
+        &quot;total_tokens&quot;: 1818,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4389.282499999972,
+        &quot;modelMs&quot;: 4389.009099999967
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-044 · public_service · 便民自行车押金退还照新登记联的要求继续。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+    &quot;draft&quot;: &quot;optional&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;个人事项最新版本已改单联电子登记联，旧便条和另档案资料不应覆盖这一版本。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1692,
+        &quot;completion_tokens&quot;: 209,
+        &quot;total_tokens&quot;: 1901,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4657.593799999973,
+        &quot;modelMs&quot;: 4657.43280000001
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1692,
+        &quot;completion_tokens&quot;: 219,
+        &quot;total_tokens&quot;: 1911,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4629.147400000016,
+        &quot;modelMs&quot;: 4628.9571
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;p2-bicycle&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1662,
+        &quot;completion_tokens&quot;: 206,
+        &quot;total_tokens&quot;: 1868,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4301.103600000031,
+        &quot;modelMs&quot;: 4300.7970000000205
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-045 · public_service · 公园志愿者登记的意向表交哪儿？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;disabled&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;记忆关闭时不关联个人旧登记事项；本轮只是地点疑问，尚无确认的新建行动。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1548,
+        &quot;completion_tokens&quot;: 112,
+        &quot;total_tokens&quot;: 1660,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2737.016800000012,
+        &quot;modelMs&quot;: 2736.818200000009
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1556,
+        &quot;completion_tokens&quot;: 112,
+        &quot;total_tokens&quot;: 1668,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2603.425499999983,
+        &quot;modelMs&quot;: 2603.2613999999885
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1548,
+        &quot;completion_tokens&quot;: 112,
+        &quot;total_tokens&quot;: 1660,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2451.139599999995,
+        &quot;modelMs&quot;: 2450.9628000000084
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-046 · hospital_administration · 探视通行证登记排到下周一早上，来访关系说明我一起带来。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-visit&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周一早上&quot;
+  },
+  &quot;rationale&quot;: &quot;明确探视证业务与来访说明，到场日包含下周和早上，应形成正确关联的办理安排。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;探视通行证登记&quot;,
+          &quot;action&quot;: &quot;递交来访关系说明&quot;,
+          &quot;deadline&quot;: &quot;下周一早上&quot;,
+          &quot;source&quot;: &quot;探视通行证登记排到下周一早上，来访关系说明我一起带来。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-visit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1696,
+        &quot;completion_tokens&quot;: 229,
+        &quot;total_tokens&quot;: 1925,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4332.607499999998,
+        &quot;modelMs&quot;: 4332.454700000002
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周一早上&quot;,
+          &quot;source&quot;: &quot;探视通行证登记排到下周一早上，来访关系说明我一起带来。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-visit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1696,
+        &quot;completion_tokens&quot;: 206,
+        &quot;total_tokens&quot;: 1902,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3929.6293000000005,
+        &quot;modelMs&quot;: 3929.4528000000137
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周一早上&quot;,
+          &quot;source&quot;: &quot;探视通行证登记排到下周一早上，来访关系说明我一起带来。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-visit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1618,
+        &quot;completion_tokens&quot;: 205,
+        &quot;total_tokens&quot;: 1823,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4159.234200000006,
+        &quot;modelMs&quot;: 4158.786500000002
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-047 · hospital_administration · 院区停车票核销请记成11月7日前递交停车凭条。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-parking&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;11月7日前&quot;
+  },
+  &quot;rationale&quot;: &quot;核销业务及材料清楚，十一月七日之前是本轮明确期限，应记录为待确认草稿。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-parking&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月7日前&quot;,
+          &quot;source&quot;: &quot;院区停车票核销请记成11月7日前递交停车凭条。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-parking&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1624,
+        &quot;completion_tokens&quot;: 194,
+        &quot;total_tokens&quot;: 1818,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3737.4802999999956,
+        &quot;modelMs&quot;: 3737.237000000023
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-parking&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月7日前&quot;,
+          &quot;source&quot;: &quot;院区停车票核销请记成11月7日前递交停车凭条。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-parking&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1698,
+        &quot;completion_tokens&quot;: 208,
+        &quot;total_tokens&quot;: 1906,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4016.877999999968,
+        &quot;modelMs&quot;: 4016.653100000054
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-parking&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月7日前&quot;,
+          &quot;source&quot;: &quot;院区停车票核销请记成11月7日前递交停车凭条。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-parking&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1698,
+        &quot;completion_tokens&quot;: 183,
+        &quot;total_tokens&quot;: 1881,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3718.1663999999873,
+        &quot;modelMs&quot;: 3718.0303999999887
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-048 · hospital_administration · Let us walk through the document photocopy reservation process.</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-copy&quot;,
+    &quot;draft&quot;: &quot;optional&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;场景资料将英文流程名对应资料复印预约；本句只介绍流程，未确定取件或递交安排。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1566,
+        &quot;completion_tokens&quot;: 99,
+        &quot;total_tokens&quot;: 1665,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3135.9701999999997,
+        &quot;modelMs&quot;: 3132.3467
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1690,
+        &quot;completion_tokens&quot;: 137,
+        &quot;total_tokens&quot;: 1827,
+        &quot;cached_prompt_tokens&quot;: 0
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3511.3360000000002,
+        &quot;modelMs&quot;: 3502.6326
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-copy&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1690,
+        &quot;completion_tokens&quot;: 162,
+        &quot;total_tokens&quot;: 1852,
+        &quot;cached_prompt_tokens&quot;: 0
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3577.7048000000004,
+        &quot;modelMs&quot;: 3577.3179000000005
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-049 · hospital_administration · 那个改到下周三下午来，说明材料不变。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-visit&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周三下午&quot;
+  },
+  &quot;rationale&quot;: &quot;确认短句没有切换话题，泛指仍是探视证登记，新日期需要保留下周与下午时段。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: null,
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 0.2651999999943655,
+        &quot;modelMs&quot;: 0
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周三下午&quot;,
+          &quot;source&quot;: &quot;那个改到下周三下午来，说明材料不变。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-visit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1706,
+        &quot;completion_tokens&quot;: 209,
+        &quot;total_tokens&quot;: 1915,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4311.3404000000155,
+        &quot;modelMs&quot;: 4311.016000000003
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周三下午&quot;,
+          &quot;source&quot;: &quot;那个改到下周三下午来，说明材料不变。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-visit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1706,
+        &quot;completion_tokens&quot;: 218,
+        &quot;total_tokens&quot;: 1924,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4198.328700000013,
+        &quot;modelMs&quot;: 4198.118099999992
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-050 · hospital_administration · 那份复印件能让家人代取吗？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-copy&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;上文与复印件共同确定资料复印业务，当前询问代取资格，不能直接创建代取任务。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-copy&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1619,
+        &quot;completion_tokens&quot;: 180,
+        &quot;total_tokens&quot;: 1799,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3858.0682000000015,
+        &quot;modelMs&quot;: 3857.3479000000007
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-copy&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1699,
+        &quot;completion_tokens&quot;: 196,
+        &quot;total_tokens&quot;: 1895,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4159.3034999999945,
+        &quot;modelMs&quot;: 4159.1348
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-copy&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1699,
+        &quot;completion_tokens&quot;: 183,
+        &quot;total_tokens&quot;: 1882,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3691.3556000000026,
+        &quot;modelMs&quot;: 3691.1984999999986
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-051 · hospital_administration · 资料复印预约能提前一天吗？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;ambiguous&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;住院与门诊资料各有独立预约，本轮未说明范围且只是改期问句，需要澄清而非直接执行。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: null,
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 0.3151999999972759,
+        &quot;modelMs&quot;: 0
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1693,
+        &quot;completion_tokens&quot;: 174,
+        &quot;total_tokens&quot;: 1867,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3872.4477999999945,
+        &quot;modelMs&quot;: 3872.2880000000005
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1693,
+        &quot;completion_tokens&quot;: 174,
+        &quot;total_tokens&quot;: 1867,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3594.599900000001,
+        &quot;modelMs&quot;: 3594.292699999991
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-052 · hospital_administration · 上回那单是不是已经处理好了？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;ambiguous&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;没有近期话题说明上回业务，探视登记、复印预约和停车核销均可能，不能随便挑选。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1689,
+        &quot;completion_tokens&quot;: 173,
+        &quot;total_tokens&quot;: 1862,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3783.9910999999847,
+        &quot;modelMs&quot;: 3783.831600000005
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: null,
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 0.1665000000211876,
+        &quot;modelMs&quot;: 0
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1689,
+        &quot;completion_tokens&quot;: 184,
+        &quot;total_tokens&quot;: 1873,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3756.78409999999,
+        &quot;modelMs&quot;: 3756.5532999999996
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-053 · hospital_administration · 候客区的蓝色椅子挪到窗边了，走道宽了不少。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;none&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;发言仅描述空间布置，与三种院区行政业务没有事项引用关系。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1696,
+        &quot;completion_tokens&quot;: 199,
+        &quot;total_tokens&quot;: 1895,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4223.8864,
+        &quot;modelMs&quot;: 4223.5579
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1696,
+        &quot;completion_tokens&quot;: 139,
+        &quot;total_tokens&quot;: 1835,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3093.9975000000004,
+        &quot;modelMs&quot;: 3093.7105999999994
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1572,
+        &quot;completion_tokens&quot;: 100,
+        &quot;total_tokens&quot;: 1672,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2495.854300000001,
+        &quot;modelMs&quot;: 2494.9696999999996
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-054 · hospital_administration · The rain stopped just before the visitors reached the courtyard.</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;none&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;英文叙述天气和到达时间，并未询问探视证或引用已保存的行政事项。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1690,
+        &quot;completion_tokens&quot;: 159,
+        &quot;total_tokens&quot;: 1849,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3458.512700000021,
+        &quot;modelMs&quot;: 3458.0080000000016
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1566,
+        &quot;completion_tokens&quot;: 117,
+        &quot;total_tokens&quot;: 1683,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2682.467399999994,
+        &quot;modelMs&quot;: 2681.8157000000065
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1690,
+        &quot;completion_tokens&quot;: 188,
+        &quot;total_tokens&quot;: 1878,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4094.369399999996,
+        &quot;modelMs&quot;: 4094.219299999997
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-055 · hospital_administration · 探视通行证登记的资料别按本周五送，改为下周五上午。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-visit&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;下周五上午&quot;
+  },
+  &quot;rationale&quot;: &quot;明确区分本周五与下周五，当前有效安排为下周五上午，不能仅按星期五匹配。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周五上午&quot;,
+          &quot;source&quot;: &quot;探视通行证登记的资料别按本周五送，改为下周五上午。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-visit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1660,
+        &quot;completion_tokens&quot;: 189,
+        &quot;total_tokens&quot;: 1849,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3776.2443000000203,
+        &quot;modelMs&quot;: 3775.9739999999874
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周五上午&quot;,
+          &quot;source&quot;: &quot;探视通行证登记的资料别按本周五送，改为下周五上午。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-visit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1696,
+        &quot;completion_tokens&quot;: 187,
+        &quot;total_tokens&quot;: 1883,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3643.385899999994,
+        &quot;modelMs&quot;: 3643.2381999999925
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;下周五上午&quot;,
+          &quot;source&quot;: &quot;探视通行证登记的资料别按本周五送，改为下周五上午。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-visit&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1696,
+        &quot;completion_tokens&quot;: 187,
+        &quot;total_tokens&quot;: 1883,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3773.9690999999875,
+        &quot;modelMs&quot;: 3773.8283999999985
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-056 · hospital_administration · 11月8日那天不行，往后一天，11月9日中午前我过去。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-parking&quot;,
+    &quot;draft&quot;: &quot;required&quot;,
+    &quot;deadline&quot;: &quot;11月9日中午前&quot;
+  },
+  &quot;rationale&quot;: &quot;核销话题明确，当前排除十一月八日并给出九日中午之前，不需猜测口头相对日期。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-parking&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: null,
+          &quot;deadline&quot;: &quot;11月9日中午前&quot;,
+          &quot;source&quot;: &quot;11月8日那天不行，往后一天，11月9日中午前我过去。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-parking&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1713,
+        &quot;completion_tokens&quot;: 210,
+        &quot;total_tokens&quot;: 1923,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4084.048300000024,
+        &quot;modelMs&quot;: 4083.861900000018
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-parking&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;院区停车票核销&quot;,
+          &quot;action&quot;: &quot;向服务台递交停车凭条&quot;,
+          &quot;deadline&quot;: &quot;11月9日中午前&quot;,
+          &quot;source&quot;: &quot;11月8日那天不行，往后一天，11月9日中午前我过去。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-parking&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1713,
+        &quot;completion_tokens&quot;: 206,
+        &quot;total_tokens&quot;: 1919,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3984.991699999955,
+        &quot;modelMs&quot;: 3984.74920000002
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;none&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: {
+          &quot;title&quot;: &quot;递交停车票核销凭条&quot;,
+          &quot;action&quot;: &quot;递交停车票核销凭条&quot;,
+          &quot;deadline&quot;: &quot;11月9日中午前&quot;,
+          &quot;source&quot;: &quot;11月8日那天不行，往后一天，11月9日中午前我过去。&quot;,
+          &quot;correction&quot;: false
+        },
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1589,
+        &quot;completion_tokens&quot;: 200,
+        &quot;total_tokens&quot;: 1789,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4077.801700000011,
+        &quot;modelMs&quot;: 4077.5215000000317
+      },
+      &quot;pass&quot;: false
+    }
+  }
+}</pre></details><details><summary>comm-v2-057 · hospital_administration · 资料复印预约先取消，不用给我留复印名额了。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-copy&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;当前明确取消复印预约，仍可识别被引用事项，但不能生成继续复印或保留名额的行动。&quot;,
+  &quot;results&quot;: {
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-copy&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1613,
+        &quot;completion_tokens&quot;: 207,
+        &quot;total_tokens&quot;: 1820,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4078.0701999999874,
+        &quot;modelMs&quot;: 4077.771999999997
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-copy&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1693,
+        &quot;completion_tokens&quot;: 161,
+        &quot;total_tokens&quot;: 1854,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3578.0025999999925,
+        &quot;modelMs&quot;: 3577.7848000000085
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-copy&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1693,
+        &quot;completion_tokens&quot;: 201,
+        &quot;total_tokens&quot;: 1894,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 3976.1587,
+        &quot;modelMs&quot;: 3976.005799999999
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-058 · hospital_administration · 院区停车票核销要等服务台盖章后再提交凭条；章还没盖。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-parking&quot;,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;停车凭条提交依赖尚未完成的盖章条件，当前不可作为立即执行的核销安排。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-parking&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1698,
+        &quot;completion_tokens&quot;: 194,
+        &quot;total_tokens&quot;: 1892,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4007.119799999986,
+        &quot;modelMs&quot;: 4006.8487000000023
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-parking&quot;,
+        &quot;draft&quot;: {
+          &quot;title&quot;: null,
+          &quot;action&quot;: &quot;等服务台盖章后提交停车凭条&quot;,
+          &quot;deadline&quot;: null,
+          &quot;source&quot;: &quot;院区停车票核销要等服务台盖章后再提交凭条；章还没盖。&quot;,
+          &quot;correction&quot;: true
+        },
+        &quot;suggestedTaskId&quot;: &quot;h2-parking&quot;
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1624,
+        &quot;completion_tokens&quot;: 216,
+        &quot;total_tokens&quot;: 1840,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4419.48569999999,
+        &quot;modelMs&quot;: 4419.118300000002
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-parking&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1698,
+        &quot;completion_tokens&quot;: 201,
+        &quot;total_tokens&quot;: 1899,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4511.497700000007,
+        &quot;modelMs&quot;: 4511.3545999999915
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-059 · hospital_administration · 探视通行证登记沿用最近核对过的那版。</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;resolved&quot;,
+    &quot;taskId&quot;: &quot;h2-visit&quot;,
+    &quot;draft&quot;: &quot;optional&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;最新个人版本已经更换服务台，早先便签与另档案资料都不应取代它；未出现新的执行时间。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;ambiguous&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1707,
+        &quot;completion_tokens&quot;: 211,
+        &quot;total_tokens&quot;: 1918,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4186.926799999999,
+        &quot;modelMs&quot;: 4186.5095
+      },
+      &quot;pass&quot;: false
+    },
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1707,
+        &quot;completion_tokens&quot;: 222,
+        &quot;total_tokens&quot;: 1929,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4383.716,
+        &quot;modelMs&quot;: 4383.4121
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;resolved&quot;,
+        &quot;taskId&quot;: &quot;h2-visit&quot;,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1629,
+        &quot;completion_tokens&quot;: 251,
+        &quot;total_tokens&quot;: 1880,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 4863.0082999999995,
+        &quot;modelMs&quot;: 4861.762399999998
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><details><summary>comm-v2-060 · hospital_administration · 院区停车票核销需要到几号窗口？</summary><pre>{
+  &quot;expected&quot;: {
+    &quot;decision&quot;: &quot;disabled&quot;,
+    &quot;taskId&quot;: null,
+    &quot;draft&quot;: &quot;forbidden&quot;,
+    &quot;deadline&quot;: null
+  },
+  &quot;rationale&quot;: &quot;访客提问不能引用个人旧核销记录；当前仅问窗口位置，不构成需要创建的行动草稿。&quot;,
+  &quot;results&quot;: {
+    &quot;qwen-direct&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1559,
+        &quot;completion_tokens&quot;: 110,
+        &quot;total_tokens&quot;: 1669,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2594.12460000001,
+        &quot;modelMs&quot;: 2594.0120999999926
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;qwen-keyword&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1559,
+        &quot;completion_tokens&quot;: 112,
+        &quot;total_tokens&quot;: 1671,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2761.542300000001,
+        &quot;modelMs&quot;: 2761.4175000000105
+      },
+      &quot;pass&quot;: true
+    },
+    &quot;signova-agent&quot;: {
+      &quot;error&quot;: null,
+      &quot;output&quot;: {
+        &quot;decision&quot;: &quot;disabled&quot;,
+        &quot;taskId&quot;: null,
+        &quot;draft&quot;: null,
+        &quot;suggestedTaskId&quot;: null
+      },
+      &quot;usage&quot;: {
+        &quot;prompt_tokens&quot;: 1567,
+        &quot;completion_tokens&quot;: 112,
+        &quot;total_tokens&quot;: 1679,
+        &quot;cached_prompt_tokens&quot;: 1152
+      },
+      &quot;timing&quot;: {
+        &quot;totalMs&quot;: 2430.075199999992,
+        &quot;modelMs&quot;: 2429.92319999999
+      },
+      &quot;pass&quot;: true
+    }
+  }
+}</pre></details><p>协议 add8a0417e64a52b35518d3e1d72a286a2afb0596c5c0e053df8412b43ab3be3<br>数据集 7b167c456400341b0de015cff9e2d1adb702e9a868f4edc8d80264d4ee901b24</p></main></html>

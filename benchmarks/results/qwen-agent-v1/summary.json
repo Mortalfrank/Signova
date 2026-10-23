@@ -1,0 +1,3087 @@
+{
+  "schema": "signova.qwen-agent-benchmark/1",
+  "fingerprint": "a6871b1fdb8f31b92a29bcb909413d44e36ede07dced5fbf2702d666984f5078",
+  "completedAt": "2026-10-23T04:14:34.176Z",
+  "complete": true,
+  "plannedObservations": 300,
+  "observed": 300,
+  "providerCalls": 280,
+  "summaries": {
+    "qwen-direct": {
+      "counts": {
+        "cases": 60,
+        "successfulCases": 57,
+        "decisionCorrectCases": 58,
+        "wrongBindingCases": 1,
+        "draftCorrectCases": 59,
+        "deadlineApplicableCases": 20,
+        "deadlineCorrectCases": 20,
+        "updateTargetApplicableCases": 21,
+        "updateTargetCorrectCases": 20,
+        "modelCalledCases": 60,
+        "errorCases": 0,
+        "missingUsageCount": 0
+      },
+      "rates": {
+        "taskSuccess": 0.95,
+        "decisionCorrect": 0.9666666666666667,
+        "wrongBinding": 0.016666666666666666,
+        "draftCorrect": 0.9833333333333333,
+        "deadlineCorrect": 1,
+        "updateTargetCorrect": 0.9523809523809523
+      },
+      "latency": {
+        "method": "nearest-rank",
+        "totalMs": {
+          "count": 60,
+          "p50": 3787.505200000014,
+          "p95": 4635.326399999998,
+          "mean": 3832.4707616666633
+        },
+        "modelMs": {
+          "count": 60,
+          "p50": 3787.343600000022,
+          "p95": 4635.121599999999,
+          "mean": 3832.298833333334
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "total": 99812,
+          "mean": 1663.5333333333333,
+          "count": 60
+        },
+        "completion_tokens": {
+          "total": 10911,
+          "mean": 181.85,
+          "count": 60
+        },
+        "total_tokens": {
+          "total": 110723,
+          "mean": 1845.3833333333334,
+          "count": 60
+        }
+      },
+      "missingUsageCount": 0
+    },
+    "qwen-keyword": {
+      "counts": {
+        "cases": 60,
+        "successfulCases": 57,
+        "decisionCorrectCases": 58,
+        "wrongBindingCases": 1,
+        "draftCorrectCases": 58,
+        "deadlineApplicableCases": 20,
+        "deadlineCorrectCases": 19,
+        "updateTargetApplicableCases": 21,
+        "updateTargetCorrectCases": 19,
+        "modelCalledCases": 60,
+        "errorCases": 0,
+        "missingUsageCount": 0
+      },
+      "rates": {
+        "taskSuccess": 0.95,
+        "decisionCorrect": 0.9666666666666667,
+        "wrongBinding": 0.016666666666666666,
+        "draftCorrect": 0.9666666666666667,
+        "deadlineCorrect": 0.95,
+        "updateTargetCorrect": 0.9047619047619048
+      },
+      "latency": {
+        "method": "nearest-rank",
+        "totalMs": {
+          "count": 60,
+          "p50": 3761.892200000002,
+          "p95": 4437.987999999998,
+          "mean": 3775.1294866666663
+        },
+        "modelMs": {
+          "count": 60,
+          "p50": 3761.7190999999875,
+          "p95": 4437.818399999989,
+          "mean": 3774.7842466666684
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "total": 99812,
+          "mean": 1663.5333333333333,
+          "count": 60
+        },
+        "completion_tokens": {
+          "total": 10772,
+          "mean": 179.53333333333333,
+          "count": 60
+        },
+        "total_tokens": {
+          "total": 110584,
+          "mean": 1843.0666666666666,
+          "count": 60
+        }
+      },
+      "missingUsageCount": 0
+    },
+    "signova-agent": {
+      "counts": {
+        "cases": 60,
+        "successfulCases": 55,
+        "decisionCorrectCases": 56,
+        "wrongBindingCases": 0,
+        "draftCorrectCases": 59,
+        "deadlineApplicableCases": 20,
+        "deadlineCorrectCases": 20,
+        "updateTargetApplicableCases": 21,
+        "updateTargetCorrectCases": 20,
+        "modelCalledCases": 54,
+        "errorCases": 0,
+        "missingUsageCount": 0
+      },
+      "rates": {
+        "taskSuccess": 0.9166666666666666,
+        "decisionCorrect": 0.9333333333333333,
+        "wrongBinding": 0,
+        "draftCorrect": 0.9833333333333333,
+        "deadlineCorrect": 1,
+        "updateTargetCorrect": 0.9523809523809523
+      },
+      "latency": {
+        "method": "nearest-rank",
+        "totalMs": {
+          "count": 60,
+          "p50": 3669.9570999999996,
+          "p95": 4366.02429999999,
+          "mean": 3247.6582316666663
+        },
+        "modelMs": {
+          "count": 60,
+          "p50": 3669.634399999981,
+          "p95": 4365.746900000027,
+          "mean": 3247.3594633333328
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "total": 85680,
+          "mean": 1428,
+          "count": 60
+        },
+        "completion_tokens": {
+          "total": 9166,
+          "mean": 152.76666666666668,
+          "count": 60
+        },
+        "total_tokens": {
+          "total": 94846,
+          "mean": 1580.7666666666667,
+          "count": 60
+        }
+      },
+      "missingUsageCount": 0
+    },
+    "agent-no-context": {
+      "counts": {
+        "cases": 60,
+        "successfulCases": 47,
+        "decisionCorrectCases": 48,
+        "wrongBindingCases": 0,
+        "draftCorrectCases": 51,
+        "deadlineApplicableCases": 20,
+        "deadlineCorrectCases": 12,
+        "updateTargetApplicableCases": 21,
+        "updateTargetCorrectCases": 13,
+        "modelCalledCases": 46,
+        "errorCases": 0,
+        "missingUsageCount": 0
+      },
+      "rates": {
+        "taskSuccess": 0.7833333333333333,
+        "decisionCorrect": 0.8,
+        "wrongBinding": 0,
+        "draftCorrect": 0.85,
+        "deadlineCorrect": 0.6,
+        "updateTargetCorrect": 0.6190476190476191
+      },
+      "latency": {
+        "method": "nearest-rank",
+        "totalMs": {
+          "count": 60,
+          "p50": 3525.6641999999993,
+          "p95": 4549.834799999997,
+          "mean": 2768.9927733333334
+        },
+        "modelMs": {
+          "count": 60,
+          "p50": 3525.381699999969,
+          "p95": 4549.560299999997,
+          "mean": 2768.6832600000025
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "total": 72744,
+          "mean": 1212.4,
+          "count": 60
+        },
+        "completion_tokens": {
+          "total": 7757,
+          "mean": 129.28333333333333,
+          "count": 60
+        },
+        "total_tokens": {
+          "total": 80501,
+          "mean": 1341.6833333333334,
+          "count": 60
+        }
+      },
+      "missingUsageCount": 0
+    },
+    "agent-no-gate": {
+      "counts": {
+        "cases": 60,
+        "successfulCases": 55,
+        "decisionCorrectCases": 56,
+        "wrongBindingCases": 0,
+        "draftCorrectCases": 58,
+        "deadlineApplicableCases": 20,
+        "deadlineCorrectCases": 20,
+        "updateTargetApplicableCases": 21,
+        "updateTargetCorrectCases": 20,
+        "modelCalledCases": 60,
+        "errorCases": 1,
+        "missingUsageCount": 0
+      },
+      "rates": {
+        "taskSuccess": 0.9166666666666666,
+        "decisionCorrect": 0.9333333333333333,
+        "wrongBinding": 0,
+        "draftCorrect": 0.9666666666666667,
+        "deadlineCorrect": 1,
+        "updateTargetCorrect": 0.9523809523809523
+      },
+      "latency": {
+        "method": "nearest-rank",
+        "totalMs": {
+          "count": 60,
+          "p50": 3731.3612999999896,
+          "p95": 4397.2428999999975,
+          "mean": 3632.941038333336
+        },
+        "modelMs": {
+          "count": 60,
+          "p50": 3730.955799999996,
+          "p95": 4396.941399999996,
+          "mean": 3632.5650116666684
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "total": 95309,
+          "mean": 1588.4833333333333,
+          "count": 60
+        },
+        "completion_tokens": {
+          "total": 10338,
+          "mean": 172.3,
+          "count": 60
+        },
+        "total_tokens": {
+          "total": 105647,
+          "mean": 1760.7833333333333,
+          "count": 60
+        }
+      },
+      "missingUsageCount": 0
+    }
+  },
+  "comparisons": {
+    "qwen-keyword": {
+      "pairedCases": 60,
+      "unpaired": {
+        "baseline": 0,
+        "candidate": 0
+      },
+      "taskSuccess": {
+        "baselineRate": 0.95,
+        "candidateRate": 0.95,
+        "improvementPp": 0,
+        "bootstrap95CiPp": [
+          -5,
+          5
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1663.5333333333333,
+          "candidateMean": 1663.5333333333333,
+          "absoluteReduction": 0,
+          "reductionPct": 0
+        },
+        "completion_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 181.85,
+          "candidateMean": 179.53333333333333,
+          "absoluteReduction": 2.316666666666663,
+          "reductionPct": 1.2739437265145246
+        },
+        "total_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1845.3833333333334,
+          "candidateMean": 1843.0666666666666,
+          "absoluteReduction": 2.3166666666668334,
+          "reductionPct": 0.12553850600147215
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 60,
+          "baselineMean": 3832.4707616666633,
+          "candidateMean": 3775.1294866666667,
+          "absoluteReduction": 57.341274999996585,
+          "reductionPct": 1.4961960199028377
+        },
+        "modelMs": {
+          "matchedCases": 60,
+          "baselineMean": 3832.2988333333356,
+          "candidateMean": 3774.784246666669,
+          "absoluteReduction": 57.51458666666667,
+          "reductionPct": 1.5007855380797759
+        }
+      }
+    },
+    "signova-agent": {
+      "pairedCases": 60,
+      "unpaired": {
+        "baseline": 0,
+        "candidate": 0
+      },
+      "taskSuccess": {
+        "baselineRate": 0.95,
+        "candidateRate": 0.9166666666666666,
+        "improvementPp": -3.3333333333333326,
+        "bootstrap95CiPp": [
+          -11.666666666666666,
+          5
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1663.5333333333333,
+          "candidateMean": 1428,
+          "absoluteReduction": 235.5333333333333,
+          "reductionPct": 14.158618202220172
+        },
+        "completion_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 181.85,
+          "candidateMean": 152.76666666666668,
+          "absoluteReduction": 29.083333333333314,
+          "reductionPct": 15.993034552286673
+        },
+        "total_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1845.3833333333334,
+          "candidateMean": 1580.7666666666667,
+          "absoluteReduction": 264.6166666666668,
+          "reductionPct": 14.339387480469284
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 60,
+          "baselineMean": 3832.4707616666633,
+          "candidateMean": 3247.6582316666663,
+          "absoluteReduction": 584.812529999997,
+          "reductionPct": 15.259412696619606
+        },
+        "modelMs": {
+          "matchedCases": 60,
+          "baselineMean": 3832.2988333333356,
+          "candidateMean": 3247.359463333333,
+          "absoluteReduction": 584.9393700000023,
+          "reductionPct": 15.263407042065708
+        }
+      }
+    },
+    "agent-no-context": {
+      "pairedCases": 60,
+      "unpaired": {
+        "baseline": 0,
+        "candidate": 0
+      },
+      "taskSuccess": {
+        "baselineRate": 0.95,
+        "candidateRate": 0.7833333333333333,
+        "improvementPp": -16.666666666666664,
+        "bootstrap95CiPp": [
+          -26.666666666666668,
+          -8.333333333333332
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1663.5333333333333,
+          "candidateMean": 1212.4,
+          "absoluteReduction": 451.1333333333332,
+          "reductionPct": 27.118983689335945
+        },
+        "completion_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 181.85,
+          "candidateMean": 129.28333333333333,
+          "absoluteReduction": 52.56666666666666,
+          "reductionPct": 28.90660801026487
+        },
+        "total_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1845.3833333333334,
+          "candidateMean": 1341.6833333333334,
+          "absoluteReduction": 503.70000000000005,
+          "reductionPct": 27.29514193076416
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 60,
+          "baselineMean": 3832.4707616666633,
+          "candidateMean": 2768.992773333334,
+          "absoluteReduction": 1063.4779883333294,
+          "reductionPct": 27.749148120593738
+        },
+        "modelMs": {
+          "matchedCases": 60,
+          "baselineMean": 3832.2988333333356,
+          "candidateMean": 2768.683260000001,
+          "absoluteReduction": 1063.6155733333344,
+          "reductionPct": 27.753983172763203
+        }
+      }
+    },
+    "agent-no-gate": {
+      "pairedCases": 60,
+      "unpaired": {
+        "baseline": 0,
+        "candidate": 0
+      },
+      "taskSuccess": {
+        "baselineRate": 0.95,
+        "candidateRate": 0.9166666666666666,
+        "improvementPp": -3.3333333333333326,
+        "bootstrap95CiPp": [
+          -11.666666666666666,
+          5
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1663.5333333333333,
+          "candidateMean": 1588.4833333333333,
+          "absoluteReduction": 75.04999999999995,
+          "reductionPct": 4.511481585380513
+        },
+        "completion_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 181.85,
+          "candidateMean": 172.3,
+          "absoluteReduction": 9.549999999999983,
+          "reductionPct": 5.251580973329658
+        },
+        "total_tokens": {
+          "matchedCases": 60,
+          "baselineMean": 1845.3833333333334,
+          "candidateMean": 1760.7833333333333,
+          "absoluteReduction": 84.60000000000014,
+          "reductionPct": 4.584413355851998
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 60,
+          "baselineMean": 3832.4707616666633,
+          "candidateMean": 3632.941038333336,
+          "absoluteReduction": 199.52972333332718,
+          "reductionPct": 5.206294731040708
+        },
+        "modelMs": {
+          "matchedCases": 60,
+          "baselineMean": 3832.2988333333356,
+          "candidateMean": 3632.5650116666684,
+          "absoluteReduction": 199.73382166666715,
+          "reductionPct": 5.211854042523573
+        }
+      }
+    }
+  },
+  "successfulComparisons": {
+    "qwen-keyword": {
+      "pairedCases": 56,
+      "unpaired": {
+        "baseline": 1,
+        "candidate": 1
+      },
+      "taskSuccess": {
+        "baselineRate": 1,
+        "candidateRate": 1,
+        "improvementPp": 0,
+        "bootstrap95CiPp": [
+          0,
+          0
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 56,
+          "baselineMean": 1662.3035714285713,
+          "candidateMean": 1662.3035714285713,
+          "absoluteReduction": 0,
+          "reductionPct": 0
+        },
+        "completion_tokens": {
+          "matchedCases": 56,
+          "baselineMean": 179.82142857142858,
+          "candidateMean": 177.94642857142858,
+          "absoluteReduction": 1.875,
+          "reductionPct": 1.0427010923535251
+        },
+        "total_tokens": {
+          "matchedCases": 56,
+          "baselineMean": 1842.125,
+          "candidateMean": 1840.25,
+          "absoluteReduction": 1.875,
+          "reductionPct": 0.10178462373617427
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 56,
+          "baselineMean": 3781.237332142854,
+          "candidateMean": 3754.8094964285715,
+          "absoluteReduction": 26.427835714282537,
+          "reductionPct": 0.6989203108101573
+        },
+        "modelMs": {
+          "matchedCases": 56,
+          "baselineMean": 3781.0650232142875,
+          "candidateMean": 3754.454439285716,
+          "absoluteReduction": 26.610583928571486,
+          "reductionPct": 0.703785408745756
+        }
+      }
+    },
+    "signova-agent": {
+      "pairedCases": 53,
+      "unpaired": {
+        "baseline": 4,
+        "candidate": 2
+      },
+      "taskSuccess": {
+        "baselineRate": 1,
+        "candidateRate": 1,
+        "improvementPp": 0,
+        "bootstrap95CiPp": [
+          0,
+          0
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 53,
+          "baselineMean": 1662.3962264150944,
+          "candidateMean": 1408.3396226415093,
+          "absoluteReduction": 254.05660377358504,
+          "reductionPct": 15.282554167092293
+        },
+        "completion_tokens": {
+          "matchedCases": 53,
+          "baselineMean": 180.33962264150944,
+          "candidateMean": 150.26415094339623,
+          "absoluteReduction": 30.075471698113205,
+          "reductionPct": 16.677129106507635
+        },
+        "total_tokens": {
+          "matchedCases": 53,
+          "baselineMean": 1842.7358490566037,
+          "candidateMean": 1558.6037735849056,
+          "absoluteReduction": 284.13207547169804,
+          "reductionPct": 15.419034454512873
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 53,
+          "baselineMean": 3786.384590566036,
+          "candidateMean": 3189.950618867924,
+          "absoluteReduction": 596.4339716981121,
+          "reductionPct": 15.75207054201934
+        },
+        "modelMs": {
+          "matchedCases": 53,
+          "baselineMean": 3786.210618867926,
+          "candidateMean": 3189.649869811321,
+          "absoluteReduction": 596.5607490566049,
+          "reductionPct": 15.756142727077767
+        }
+      }
+    },
+    "agent-no-context": {
+      "pairedCases": 47,
+      "unpaired": {
+        "baseline": 10,
+        "candidate": 0
+      },
+      "taskSuccess": {
+        "baselineRate": 1,
+        "candidateRate": 1,
+        "improvementPp": 0,
+        "bootstrap95CiPp": [
+          0,
+          0
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 47,
+          "baselineMean": 1659.872340425532,
+          "candidateMean": 1381.787234042553,
+          "absoluteReduction": 278.0851063829789,
+          "reductionPct": 16.753403235316746
+        },
+        "completion_tokens": {
+          "matchedCases": 47,
+          "baselineMean": 177.9787234042553,
+          "candidateMean": 146.4468085106383,
+          "absoluteReduction": 31.531914893617,
+          "reductionPct": 17.71667662881051
+        },
+        "total_tokens": {
+          "matchedCases": 47,
+          "baselineMean": 1837.8510638297873,
+          "candidateMean": 1528.2340425531916,
+          "absoluteReduction": 309.6170212765958,
+          "reductionPct": 16.84668727352713
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 47,
+          "baselineMean": 3728.2469851063834,
+          "candidateMean": 3133.1424446808537,
+          "absoluteReduction": 595.1045404255296,
+          "reductionPct": 15.962047117662959
+        },
+        "modelMs": {
+          "matchedCases": 47,
+          "baselineMean": 3728.070504255321,
+          "candidateMean": 3132.8157297872376,
+          "absoluteReduction": 595.2547744680833,
+          "reductionPct": 15.966832542159365
+        }
+      }
+    },
+    "agent-no-gate": {
+      "pairedCases": 53,
+      "unpaired": {
+        "baseline": 4,
+        "candidate": 2
+      },
+      "taskSuccess": {
+        "baselineRate": 1,
+        "candidateRate": 1,
+        "improvementPp": 0,
+        "bootstrap95CiPp": [
+          0,
+          0
+        ],
+        "bootstrap": {
+          "method": "paired-percentile-nearest-rank",
+          "iterations": 2000,
+          "seed": 20261023
+        }
+      },
+      "tokens": {
+        "prompt_tokens": {
+          "matchedCases": 53,
+          "baselineMean": 1662.4528301886792,
+          "candidateMean": 1589.2641509433963,
+          "absoluteReduction": 73.18867924528286,
+          "reductionPct": 4.4024514811031565
+        },
+        "completion_tokens": {
+          "matchedCases": 53,
+          "baselineMean": 179.43396226415095,
+          "candidateMean": 168.62264150943398,
+          "absoluteReduction": 10.811320754716974,
+          "reductionPct": 6.025236593059932
+        },
+        "total_tokens": {
+          "matchedCases": 53,
+          "baselineMean": 1841.8867924528302,
+          "candidateMean": 1757.8867924528302,
+          "absoluteReduction": 84,
+          "reductionPct": 4.560540872771973
+        }
+      },
+      "latency": {
+        "totalMs": {
+          "matchedCases": 53,
+          "baselineMean": 3772.6093943396204,
+          "candidateMean": 3570.933760377361,
+          "absoluteReduction": 201.67563396225933,
+          "reductionPct": 5.345786241874155
+        },
+        "modelMs": {
+          "matchedCases": 53,
+          "baselineMean": 3772.4362754717,
+          "candidateMean": 3570.5564547169824,
+          "absoluteReduction": 201.87982075471746,
+          "reductionPct": 5.35144416003355
+        }
+      }
+    }
+  },
+  "categories": {
+    "explicit": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 12,
+          "successfulCases": 12,
+          "decisionCorrectCases": 12,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 12,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 12,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 12,
+            "p50": 3839.7514000000083,
+            "p95": 4627.338400000008,
+            "mean": 3970.9222416666685
+          },
+          "modelMs": {
+            "count": 12,
+            "p50": 3839.602599999984,
+            "p95": 4627.1866000000155,
+            "mean": 3970.7411000000084
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 20049,
+            "mean": 1670.75,
+            "count": 12
+          },
+          "completion_tokens": {
+            "total": 2316,
+            "mean": 193,
+            "count": 12
+          },
+          "total_tokens": {
+            "total": 22365,
+            "mean": 1863.75,
+            "count": 12
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 12,
+          "successfulCases": 12,
+          "decisionCorrectCases": 12,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 12,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 12,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 12,
+            "p50": 3761.892200000002,
+            "p95": 4545.68329999999,
+            "mean": 3891.0555416666684
+          },
+          "modelMs": {
+            "count": 12,
+            "p50": 3761.7190999999875,
+            "p95": 4545.534200000009,
+            "mean": 3890.1316916666656
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 20049,
+            "mean": 1670.75,
+            "count": 12
+          },
+          "completion_tokens": {
+            "total": 2200,
+            "mean": 183.33333333333334,
+            "count": 12
+          },
+          "total_tokens": {
+            "total": 22249,
+            "mean": 1854.0833333333333,
+            "count": 12
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 12,
+          "successfulCases": 12,
+          "decisionCorrectCases": 12,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 12,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 12,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 12,
+            "p50": 3782.3053000000073,
+            "p95": 4269.819100000001,
+            "mean": 3834.0650999999975
+          },
+          "modelMs": {
+            "count": 12,
+            "p50": 3782.075200000021,
+            "p95": 4269.2048,
+            "mean": 3833.7227000000025
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 19227,
+            "mean": 1602.25,
+            "count": 12
+          },
+          "completion_tokens": {
+            "total": 2178,
+            "mean": 181.5,
+            "count": 12
+          },
+          "total_tokens": {
+            "total": 21405,
+            "mean": 1783.75,
+            "count": 12
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-context": {
+        "counts": {
+          "cases": 12,
+          "successfulCases": 12,
+          "decisionCorrectCases": 12,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 12,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 12,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 12,
+            "p50": 3691.171399999992,
+            "p95": 4596.501899999999,
+            "mean": 3848.5850916666764
+          },
+          "modelMs": {
+            "count": 12,
+            "p50": 3690.8988000000245,
+            "p95": 4595.0422,
+            "mean": 3848.19828333334
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 19227,
+            "mean": 1602.25,
+            "count": 12
+          },
+          "completion_tokens": {
+            "total": 2179,
+            "mean": 181.58333333333334,
+            "count": 12
+          },
+          "total_tokens": {
+            "total": 21406,
+            "mean": 1783.8333333333333,
+            "count": 12
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-gate": {
+        "counts": {
+          "cases": 12,
+          "successfulCases": 12,
+          "decisionCorrectCases": 12,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 12,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 8,
+          "modelCalledCases": 12,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 12,
+            "p50": 3882.2562000000034,
+            "p95": 4397.2428999999975,
+            "mean": 3889.9463583333327
+          },
+          "modelMs": {
+            "count": 12,
+            "p50": 3881.8618000000133,
+            "p95": 4396.941399999996,
+            "mean": 3889.351016666673
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 19227,
+            "mean": 1602.25,
+            "count": 12
+          },
+          "completion_tokens": {
+            "total": 2215,
+            "mean": 184.58333333333334,
+            "count": 12
+          },
+          "total_tokens": {
+            "total": 21442,
+            "mean": 1786.8333333333333,
+            "count": 12
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "context_reference": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 4,
+          "deadlineCorrectCases": 4,
+          "updateTargetApplicableCases": 5,
+          "updateTargetCorrectCases": 5,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 4278.827400000009,
+            "p95": 5537.565100000007,
+            "mean": 4355.2317999999905
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 4278.681799999991,
+            "p95": 5537.409199999995,
+            "mean": 4355.070137499999
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13437,
+            "mean": 1679.625,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1581,
+            "mean": 197.625,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 15018,
+            "mean": 1877.25,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 6,
+          "deadlineApplicableCases": 4,
+          "deadlineCorrectCases": 3,
+          "updateTargetApplicableCases": 5,
+          "updateTargetCorrectCases": 4,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 0.75,
+          "deadlineCorrect": 0.75,
+          "updateTargetCorrect": 0.8
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 4122.615600000019,
+            "p95": 4437.987999999998,
+            "mean": 4071.8622874999983
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 4122.412900000054,
+            "p95": 4437.818399999989,
+            "mean": 4071.6620000000057
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13437,
+            "mean": 1679.625,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1561,
+            "mean": 195.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14998,
+            "mean": 1874.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 4,
+          "deadlineCorrectCases": 4,
+          "updateTargetApplicableCases": 5,
+          "updateTargetCorrectCases": 5,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3635.0824999999895,
+            "p95": 4138.771400000012,
+            "mean": 3676.638374999997
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3634.384699999995,
+            "p95": 4138.377500000002,
+            "mean": 3676.224724999991
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12828,
+            "mean": 1603.5,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1404,
+            "mean": 175.5,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14232,
+            "mean": 1779,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-context": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 1,
+          "decisionCorrectCases": 2,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 3,
+          "deadlineApplicableCases": 4,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 5,
+          "updateTargetCorrectCases": 1,
+          "modelCalledCases": 3,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.125,
+          "decisionCorrect": 0.25,
+          "wrongBinding": 0,
+          "draftCorrect": 0.375,
+          "deadlineCorrect": 0,
+          "updateTargetCorrect": 0.2
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 0.2542000000248663,
+            "p95": 4549.834799999997,
+            "mean": 1415.1520374999964
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 0,
+            "p95": 4549.560299999997,
+            "mean": 1414.912287500003
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 4730,
+            "mean": 591.25,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 532,
+            "mean": 66.5,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 5262,
+            "mean": 657.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-gate": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 7,
+          "deadlineApplicableCases": 4,
+          "deadlineCorrectCases": 4,
+          "updateTargetApplicableCases": 5,
+          "updateTargetCorrectCases": 5,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 0.875,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 1
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3705.0161999999837,
+            "p95": 4049.6848000000173,
+            "mean": 3663.6998500000063
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3704.650099999999,
+            "p95": 4049.114499999996,
+            "mean": 3663.299937499998
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12828,
+            "mean": 1603.5,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1400,
+            "mean": 175,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14228,
+            "mean": 1778.5,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "ambiguous": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3720.2993000000133,
+            "p95": 4598.3315,
+            "mean": 3876.8781125000005
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3720.0862999999954,
+            "p95": 4598.196000000011,
+            "mean": 3876.7222250000086
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13313,
+            "mean": 1664.125,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1459,
+            "mean": 182.375,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14772,
+            "mean": 1846.5,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3806.8870000000024,
+            "p95": 4135.3677000000025,
+            "mean": 3842.3242625000003
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3806.6320000000123,
+            "p95": 4135.154600000009,
+            "mean": 3842.1221625000053
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13313,
+            "mean": 1664.125,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1412,
+            "mean": 176.5,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14725,
+            "mean": 1840.625,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 6,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 2,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.75,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 0.14440000004833564,
+            "p95": 3704.472300000023,
+            "mean": 862.1781125000143
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 0,
+            "p95": 3704.266500000027,
+            "mean": 862.0179625000037
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 3101,
+            "mean": 387.625,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 324,
+            "mean": 40.5,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 3425,
+            "mean": 428.125,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-context": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 6,
+          "decisionCorrectCases": 6,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 2,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.75,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 0.19009999997797422,
+            "p95": 4195.84500000003,
+            "mean": 975.2410125000006
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 0,
+            "p95": 4195.527699999977,
+            "mean": 974.9884249999959
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 3101,
+            "mean": 387.625,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 353,
+            "mean": 44.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 3454,
+            "mean": 431.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-gate": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 7,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.875,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3728.6023000000278,
+            "p95": 4023.860799999995,
+            "mean": 3680.2960749999966
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3728.394500000053,
+            "p95": 4023.5764999999956,
+            "mean": 3680.011662500001
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12730,
+            "mean": 1591.25,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1380,
+            "mean": 172.5,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14110,
+            "mean": 1763.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "unrelated": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3464.477899999998,
+            "p95": 3774.6076999999987,
+            "mean": 3427.174937499997
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3464.323300000018,
+            "p95": 3774.3831999999984,
+            "mean": 3427.0009499999933
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13353,
+            "mean": 1669.125,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1279,
+            "mean": 159.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14632,
+            "mean": 1829,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3408.651499999978,
+            "p95": 4072.8908999999985,
+            "mean": 3421.2094124999985
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3408.4726000000373,
+            "p95": 4072.67220000003,
+            "mean": 3421.004262500005
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13353,
+            "mean": 1669.125,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1245,
+            "mean": 155.625,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14598,
+            "mean": 1824.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2556.5626000000047,
+            "p95": 3252.991399999999,
+            "mean": 2684.3077249999938
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2556.325599999982,
+            "p95": 3252.7297000000253,
+            "mean": 2683.9940500000084
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12395,
+            "mean": 1549.375,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 881,
+            "mean": 110.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 13276,
+            "mean": 1659.5,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-context": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2754.922900000005,
+            "p95": 3198.1599999999744,
+            "mean": 2809.418950000002
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2754.6829000000143,
+            "p95": 3197.781399999978,
+            "mean": 2809.0724125000042
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12395,
+            "mean": 1549.375,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 969,
+            "mean": 121.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 13364,
+            "mean": 1670.5,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-gate": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2435.6728000000003,
+            "p95": 3319.255899999989,
+            "mean": 2546.5003375000015
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2435.4353999999876,
+            "p95": 3319.002299999993,
+            "mean": 2546.227499999998
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12395,
+            "mean": 1549.375,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 875,
+            "mean": 109.375,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 13270,
+            "mean": 1658.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "correction": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 7,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 1,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 7,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.875,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0.125,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 0.875
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3789.7516999999643,
+            "p95": 4662.065799999982,
+            "mean": 3918.9092499999824
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3789.597599999979,
+            "p95": 4661.918000000005,
+            "mean": 3918.7528124999917
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13414,
+            "mean": 1676.75,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1514,
+            "mean": 189.25,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14928,
+            "mean": 1866,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 7,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 1,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 7,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.875,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0.125,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 0.875
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3748.174400000018,
+            "p95": 4209.536000000022,
+            "mean": 3872.860250000009
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3747.984700000001,
+            "p95": 4209.327699999965,
+            "mean": 3872.6667124999985
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 13414,
+            "mean": 1676.75,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1529,
+            "mean": 191.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14943,
+            "mean": 1867.875,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 7,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 7,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.875,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 0.875
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3815.8815000000177,
+            "p95": 4191.4228,
+            "mean": 3863.515824999995
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3815.5708999999915,
+            "p95": 4191.19809999998,
+            "mean": 3863.232949999994
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12764,
+            "mean": 1595.5,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1473,
+            "mean": 184.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14237,
+            "mean": 1779.625,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-context": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 4,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 4,
+          "modelCalledCases": 5,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.5,
+          "decisionCorrect": 0.5,
+          "wrongBinding": 0,
+          "draftCorrect": 0.5,
+          "deadlineCorrect": 0.5,
+          "updateTargetCorrect": 0.5
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3301.4103999999934,
+            "p95": 3909.7119999999995,
+            "mean": 2298.5438249999897
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3301.1719999999623,
+            "p95": 3909.4212000000407,
+            "mean": 2298.268100000005
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 7943,
+            "mean": 992.875,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 863,
+            "mean": 107.875,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 8806,
+            "mean": 1100.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-gate": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 7,
+          "decisionCorrectCases": 7,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 8,
+          "deadlineCorrectCases": 8,
+          "updateTargetApplicableCases": 8,
+          "updateTargetCorrectCases": 7,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.875,
+          "decisionCorrect": 0.875,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": 1,
+          "updateTargetCorrect": 0.875
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 3730.227200000023,
+            "p95": 4434.502000000008,
+            "mean": 3891.1888125000114
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 3729.9016999999876,
+            "p95": 4434.186799999996,
+            "mean": 3890.8932375000004
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12764,
+            "mean": 1595.5,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1513,
+            "mean": 189.125,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14277,
+            "mean": 1784.625,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "negation": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3867.0166000000027,
+            "p95": 4635.326399999998,
+            "mean": 4035.4820999999974
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3866.8594000000157,
+            "p95": 4635.121599999999,
+            "mean": 4035.309625000009
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6688,
+            "mean": 1672,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 807,
+            "mean": 201.75,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7495,
+            "mean": 1873.75,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3749.125199999995,
+            "p95": 4953.119999999995,
+            "mean": 4129.763300000002
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3748.9516000000003,
+            "p95": 4952.860099999998,
+            "mean": 4129.541350000009
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6688,
+            "mean": 1672,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 841,
+            "mean": 210.25,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7529,
+            "mean": 1882.25,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3995.647399999987,
+            "p95": 4885.4302000000025,
+            "mean": 4291.310124999998
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3995.3745000000054,
+            "p95": 4885.016799999998,
+            "mean": 4290.972450000001
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6390,
+            "mean": 1597.5,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 866,
+            "mean": 216.5,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7256,
+            "mean": 1814,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-context": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3947.972599999979,
+            "p95": 4981.5118,
+            "mean": 4413.789524999991
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3947.746299999999,
+            "p95": 4981.206899999997,
+            "mean": 4413.473749999999
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6390,
+            "mean": 1597.5,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 851,
+            "mean": 212.75,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7241,
+            "mean": 1810.25,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-gate": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 3,
+          "decisionCorrectCases": 3,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 3,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 1,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 0.75,
+          "decisionCorrect": 0.75,
+          "wrongBinding": 0,
+          "draftCorrect": 0.75,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3899.1319999999832,
+            "p95": 6735.5134000000035,
+            "mean": 4708.33462499999
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3898.805299999978,
+            "p95": 6734.962400000004,
+            "mean": 4707.974349999997
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6390,
+            "mean": 1597.5,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 956,
+            "mean": 239,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7346,
+            "mean": 1836.5,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "conditional": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3696.314100000018,
+            "p95": 4407.03350000002,
+            "mean": 3885.823000000015
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3696.1700999999885,
+            "p95": 4406.868699999992,
+            "mean": 3885.6705249999904
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6704,
+            "mean": 1676,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 771,
+            "mean": 192.75,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7475,
+            "mean": 1868.75,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 4008.8793000000005,
+            "p95": 4793.9046999999555,
+            "mean": 4230.933449999975
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 4008.709699999992,
+            "p95": 4793.72729999997,
+            "mean": 4230.772574999992
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6704,
+            "mean": 1676,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 830,
+            "mean": 207.5,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7534,
+            "mean": 1883.5,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 4099.428400000033,
+            "p95": 4366.02429999999,
+            "mean": 4147.4795750000085
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 4099.158399999957,
+            "p95": 4365.746900000027,
+            "mean": 4147.208149999999
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6397,
+            "mean": 1599.25,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 787,
+            "mean": 196.75,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7184,
+            "mean": 1796,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-context": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 4063.454899999997,
+            "p95": 4401.063200000033,
+            "mean": 4086.276200000004
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 4063.171000000002,
+            "p95": 4400.786300000036,
+            "mean": 4085.986299999997
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6397,
+            "mean": 1599.25,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 818,
+            "mean": 204.5,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7215,
+            "mean": 1803.75,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-gate": {
+        "counts": {
+          "cases": 4,
+          "successfulCases": 4,
+          "decisionCorrectCases": 4,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 4,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 4,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 4,
+            "p50": 3788.8497999999963,
+            "p95": 4339.583199999994,
+            "mean": 3931.711875000001
+          },
+          "modelMs": {
+            "count": 4,
+            "p50": 3788.5715999999957,
+            "p95": 4339.309200000018,
+            "mean": 3931.4405500000066
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 6397,
+            "mean": 1599.25,
+            "count": 4
+          },
+          "completion_tokens": {
+            "total": 787,
+            "mean": 196.75,
+            "count": 4
+          },
+          "total_tokens": {
+            "total": 7184,
+            "mean": 1796,
+            "count": 4
+          }
+        },
+        "missingUsageCount": 0
+      }
+    },
+    "version_scope": {
+      "qwen-direct": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2874.2205999999715,
+            "p95": 4046.52840000001,
+            "mean": 3248.3006999999952
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2874.0835999999836,
+            "p95": 4046.235400000005,
+            "mean": 3248.0934000000047
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12854,
+            "mean": 1606.75,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1184,
+            "mean": 148,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14038,
+            "mean": 1754.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "qwen-keyword": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2407.559899999993,
+            "p95": 4116.5681,
+            "mean": 3088.28325
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2407.4226999999955,
+            "p95": 4116.232199999999,
+            "mean": 3088.072212500001
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12854,
+            "mean": 1606.75,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1154,
+            "mean": 144.25,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 14008,
+            "mean": 1751,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "signova-agent": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2484.8157999999967,
+            "p95": 4558.597100000014,
+            "mean": 3300.3041999999973
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2484.6647999999986,
+            "p95": 4558.2910000000265,
+            "mean": 3300.051937499995
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12578,
+            "mean": 1572.25,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1253,
+            "mean": 156.625,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 13831,
+            "mean": 1728.875,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-context": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2831.5429000000004,
+            "p95": 4465.006500000018,
+            "mean": 3246.1794750000013
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2831.2873000000254,
+            "p95": 4464.77350000001,
+            "mean": 3245.855774999999
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12561,
+            "mean": 1570.125,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1192,
+            "mean": 149,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 13753,
+            "mean": 1719.125,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      },
+      "agent-no-gate": {
+        "counts": {
+          "cases": 8,
+          "successfulCases": 8,
+          "decisionCorrectCases": 8,
+          "wrongBindingCases": 0,
+          "draftCorrectCases": 8,
+          "deadlineApplicableCases": 0,
+          "deadlineCorrectCases": 0,
+          "updateTargetApplicableCases": 0,
+          "updateTargetCorrectCases": 0,
+          "modelCalledCases": 8,
+          "errorCases": 0,
+          "missingUsageCount": 0
+        },
+        "rates": {
+          "taskSuccess": 1,
+          "decisionCorrect": 1,
+          "wrongBinding": 0,
+          "draftCorrect": 1,
+          "deadlineCorrect": null,
+          "updateTargetCorrect": null
+        },
+        "latency": {
+          "method": "nearest-rank",
+          "totalMs": {
+            "count": 8,
+            "p50": 2785.101500000019,
+            "p95": 4411.693800000008,
+            "mean": 3310.4299250000086
+          },
+          "modelMs": {
+            "count": 8,
+            "p50": 2784.896700000012,
+            "p95": 4411.200100000016,
+            "mean": 3310.071275000003
+          }
+        },
+        "tokens": {
+          "prompt_tokens": {
+            "total": 12578,
+            "mean": 1572.25,
+            "count": 8
+          },
+          "completion_tokens": {
+            "total": 1212,
+            "mean": 151.5,
+            "count": 8
+          },
+          "total_tokens": {
+            "total": 13790,
+            "mean": 1723.75,
+            "count": 8
+          }
+        },
+        "missingUsageCount": 0
+      }
+    }
+  },
+  "limitations": [
+    "Authored fictional cases are not an independent blind test or a public benchmark.",
+    "Model is a provider alias; temperature 0 is not a guarantee of deterministic hosted responses.",
+    "End-to-end latency here is text input to structured candidate, excluding microphone, ASR, sign generation and rendering.",
+    "Local ambiguity fast paths count as zero provider calls/tokens and are reported separately.",
+    "One observation per case/arm; wall-clock timing is affected by network, concurrent load and provider prompt caching.",
+    "Case-level bootstrap is conditional on this authored dataset; related domain/template families are not independent random user samples.",
+    "Internal taskSuccess means structured reference/draft-presence/update-target/date correctness, not action/material correctness, natural-language reply quality or sign-language comprehension."
+  ]
+}
