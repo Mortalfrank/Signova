@@ -1,20 +1,20 @@
 # 宣传片素材与署名
 
-## 配乐与音效
+## 配乐
 
 配乐：**Better Times are Coming** — Alejandro Magaña (A. M.)，来自 [Mixkit](https://mixkit.co/free-stock-music/tag/technology/)，曲目编号 173。
 
 授权：[Mixkit Stock Music Free License](https://mixkit.co/license/modal/musicFree/)，核对日期：2026-10-19。用于本片与画面同步的背景音乐；成片可在 GitHub 项目页、个人网站及社交平台展示。另见 [Mixkit User Terms](https://mixkit.co/terms/)。
 
-UI 提示、轻转场和品牌冲击音由工程脚本合成，不使用额外音效素材。
+当前版本仅使用原背景音乐，画面与原中文字幕保持不变。
 
 音乐未转为本仓库的开源许可证。原始曲目、试听和独立音轨只作制作材料，不作为音乐素材库公开分发。公开视频请使用已合成的 MP4；需要重新制作时，按上述来源重新获取音乐。
 
 许可核对存档与下载记录保留在本地制作工程，不包含在公开展示包中；公开来源及许可链接见上文。
 
-## 中文旁白
+## 历史中文旁白
 
-新版七段中文旁白由阿里云百炼 Qwen TTS 生成，使用 `qwen3-tts-flash` 模型与 Serena 系统音色，并制作逐句同步字幕。此处记录 AI 合成声音的制作来源，不将其表述为真人配音。接口说明见 [Qwen-TTS 官方 API 文档](https://help.aliyun.com/zh/model-studio/qwen-tts-api)。
+旧版七段中文旁白由阿里云百炼 Qwen TTS 生成，使用 `qwen3-tts-flash` 模型与 Serena 系统音色，并制作逐句同步字幕。当前纯音乐版已移除旁白，保留原中文字幕；此处仅记录历史制作来源。接口说明见 [Qwen-TTS 官方 API 文档](https://help.aliyun.com/zh/model-studio/qwen-tts-api)。
 
 ## NOVA AI 动作画面与驱动参考
 

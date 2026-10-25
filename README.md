@@ -36,7 +36,7 @@ SIGNOVA 面向聋人及听障用户，围绕现场信息理解、本人表达和
 
 [![SIGNOVA 产品影片封面：点击在线播放](docs/showcase/poster.jpg)](https://mortalfrank.github.io/Signova/#film)
 
-**[▶ 在线播放 60 秒品牌片](https://mortalfrank.github.io/Signova/#film)**（1080p，含中文旁白、配乐与字幕）。点击封面即可在网页播放器观看，支持手机和电脑，无需下载文件或启动项目。[单独字幕文件](docs/showcase/captions.zh-CN.vtt) · [下载 MP4](docs/showcase/promo.mp4?raw=true) · [制作与素材来源](docs/showcase/LICENSES.md)
+**[▶ 在线播放 60 秒品牌片](https://mortalfrank.github.io/Signova/#film)**（1080p，纯音乐配乐，保留原中文字幕）。点击封面即可在网页播放器观看，支持手机和电脑，无需下载文件或启动项目。[单独字幕文件](docs/showcase/captions.zh-CN.vtt) · [下载 MP4](docs/showcase/promo-music-only.mp4?raw=true) · [制作与素材来源](docs/showcase/LICENSES.md)
 
 - [独立产品展示页](https://mortalfrank.github.io/Signova/) · [本地预览与静态部署说明](docs/showcase/README.md)
 - [技术案例：上下文、确认记忆与数字人动作管线](docs/showcase/TECHNICAL_STORY.md)

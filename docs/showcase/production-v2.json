@@ -1,6 +1,6 @@
 {
-  "edition": "SIGNOVA brand film v2",
-  "date": "2026-10-20",
+  "edition": "SIGNOVA brand film v2 music-only",
+  "date": "2026-10-25",
   "audience": "聋人及听障用户",
   "brand": "让沟通可见，让参与平等。",
   "message": "每一种表达，都值得被认真回应。",
@@ -28,11 +28,8 @@
     "scope": "独立品牌动作可视化"
   },
   "voice": {
-    "provider": "DashScope",
-    "model": "qwen3-tts-flash",
-    "voice": "Serena",
-    "lines": 7,
-    "finalMixAsrVerified": true
+    "enabled": false,
+    "lines": 0
   },
   "subtitles": {
     "file": "captions.zh-CN.vtt",
@@ -40,21 +37,31 @@
   },
   "previous3DModelVisible": false,
   "notes": "生成动作不作为中文整句手语准确性验收；素材许可与来源见LICENSES.md。",
-  "webVideoSha256": "6a49fe674dc9e0e6ac091f6d0478763742ed17367f1f3178f013721211bd49d3",
-  "webVideoBytes": 5700085,
-  "masterSha256": "02366417b9a2af536ff5fae6c9b859b77179c4b5e0429ff73cc78a6aabf2609e",
+  "webVideoSha256": "258ab800ffe757a757fa67dd3352000240925181b287150e9cd9305eac2ecbfa",
+  "webVideoBytes": 5704004,
+  "masterSha256": "378dae5b5a776baa891be7b3087c9b31c6ef2da17766c0e5503c6d929406bc71",
   "checks": {
     "videoCodec": "H264",
     "audioCodec": "AAC",
-    "integratedLufs": -13.9,
-    "truePeakDbfs": -2.4,
+    "integratedLufs": -14.07,
+    "truePeakDbfs": -2.15,
     "renderErrors": 0,
-    "minimumVoiceOverMusicDb": 10.3,
-    "finalMixAsrLinesMatched": 7,
     "subtitleCues": 19,
     "ipInFilmSeconds": [
       20,
       23
-    ]
-  }
+    ],
+    "videoStreamUnchanged": true,
+    "audioTrackCount": 1,
+    "videoStreamSha256": "f723a6ede29834485b205cec1b3fac8385f424c552cfbda992af8dd5ccdd6620",
+    "fullDecodePassed": true
+  },
+  "audio": {
+    "mode": "music-only",
+    "track": "Better Times are Coming",
+    "musicOffsetSeconds": 0.194,
+    "voiceDucking": false,
+    "effectsEnabled": false
+  },
+  "webVideoFile": "promo-music-only.mp4"
 }

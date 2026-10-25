@@ -18,13 +18,13 @@ node docs/showcase/serve.mjs
 
 新版采用 60 秒品牌叙事：跟随一位听障学生办理校园事务，明确 SIGNOVA 面向聋人及听障用户，依次呈现看见现场信息、自主表达、确认并接续事项，落到平等参与生活。品牌主张为“让沟通可见，让参与平等”，情感句为“每一种表达，都值得被认真回应”。校园故事属于产品情境示意。
 
-声音采用七段 Qwen TTS 中文旁白（`qwen3-tts-flash`，Serena 系统音色），配合背景音乐与逐句同步字幕。声音和 AI 动作画面的制作来源见 [素材许可说明](LICENSES.md)。
+当前版本仅保留原背景音乐，画面与原中文字幕保持不变。声音和 AI 动作画面的制作来源见 [素材许可说明](LICENSES.md)。
 
 播放器由 `media.json` 启用。成片使用以下文件：
 
 ```json
 {
-  "video": "promo.mp4",
+  "video": "promo-music-only.mp4",
   "poster": "poster.jpg",
   "captions": "captions.zh-CN.vtt"
 }
@@ -44,7 +44,7 @@ node docs/showcase/serve.mjs
 
 ```html
 <video controls playsinline preload="metadata" poster="/signova/poster.jpg">
-  <source src="/signova/promo.mp4" type="video/mp4">
+  <source src="/signova/promo-music-only.mp4" type="video/mp4">
   <track kind="captions" src="/signova/captions.zh-CN.vtt"
          srclang="zh-CN" label="简体中文">
 </video>
@@ -68,7 +68,7 @@ node docs/showcase/serve.mjs
 - `assets/mobile-*.png` 为本项目真实浏览器截图，当前来源为 `宣传片/SIGNOVA宣传片/工程/public/screens/03-model.png`、`04-reply.png`、`10-continue.png`。无第三方用户资料。
 - 星形图标为本次编写的 SVG 几何图形；排版使用系统字体，无远程字体文件。
 - 配乐为 Mixkit 的 Better Times are Coming，采用与画面同步的成片展示，详见 [素材许可说明](LICENSES.md)。不要单独分发原始配乐、试听或工程独立音轨。
-- 中文旁白由阿里云百炼 Qwen TTS（`qwen3-tts-flash`）的 Serena 系统音色生成；字幕与旁白逐句同步。
+- 当前版本采用纯音乐音轨，保留原中文字幕与时间轴；历史中文旁白制作来源见素材许可说明。
 - 新版的 NOVA 动作画面采用原 IP 图片与万相 `wan2.2-animate-move` 专业模式（`wan-pro`）图生动作。驱动参考源自 StudioGalt CC0 的独立 ASL Please 动捕，经本地骨骼重定向并渲染为模型输入视频；该参考视频和参考用 3D 模型外观不出现在最终片中。AI 生成结果用于品牌 IP 动作可视化，不作为中文整句手语翻译质量验收的证据，详见 [素材许可说明](LICENSES.md)。
 
 ## 可访问性与验证
